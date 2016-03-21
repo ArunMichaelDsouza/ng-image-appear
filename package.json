@@ -1,0 +1,31 @@
+{
+  "name": "ng-image-appear",
+  "version": "0.1.0",
+  "description": "AngularJS Module to make images appear with transition as they load",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArunMichaelDsouza/ng-image-appear.git"
+  },
+  "keywords": [
+    "angularjs",
+    "module",
+    "image",
+    "appear",
+    "transition"
+  ],
+  "author": "Arun Michael Dsouza <amdsouza92@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ArunMichaelDsouza/ng-image-appear/issues"
+  },
+  "homepage": "https://github.com/ArunMichaelDsouza/ng-image-appear#readme",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-uglify": "^1.0.1",
+    "grunt-contrib-watch": "^1.0.0"
+  }
+}
