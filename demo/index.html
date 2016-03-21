@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app="myApp" id="ng-app">
+<head>
+	<title>ng-image-appear demo</title>
+	<meta charset="UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+</head>
+<body ng-controller="appCtrl">
+	<img src="https://www.planwallpaper.com/static/images/3D-Beach-Wallpaper-HD-Download.jpg" ng-image-appear /> 
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+	<script src="../build/ng-image-appear.min.js"></script>
+	<script>
+		var myApp = angular.module('myApp', ['ngImageAppear']);
+
+		myApp.controller('appCtrl', ['$scope', function($scope) {
+			
+		}]);
+	</script>
+</body>
+</html>
