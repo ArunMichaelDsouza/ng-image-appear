@@ -9,6 +9,14 @@
 			width: 450px;
 			height: auto;
 		}
+		@keyframes fadeInUp {
+			0% {
+				transform: translateY(60px);
+			}
+			100% {
+				transform: translateY(0px);
+			}
+		}
 	</style>
 </head>
 <body ng-controller="appCtrl">
@@ -16,7 +24,7 @@
 		src="https://www.planwallpaper.com/static/images/3D-Beach-Wallpaper-HD-Download.jpg" 
 		ng-image-appear 
 		transition-duration=".8" 
-		show-loader
+		show-loader 
 	/> 
 	<img src="https://www.planwallpaper.com/static/images/3D-Beach-Wallpaper-HD-Download.jpg"/> 
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
