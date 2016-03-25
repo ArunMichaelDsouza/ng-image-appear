@@ -11,23 +11,26 @@ var ngImageAppear = angular.module('ngImageAppear', []).directive('ngImageAppear
 
             // Element attribute declarations
             var transitionDuration, 
-                showLoader;
+                showLoader,
+                loaderBgColor;
 
             // Fetching element attributes
             transitionDuration = attrs.transitionDuration; // Get transition duration
             console.log(transitionDuration);
             showLoader = element[0].hasAttribute('show-loader'); // Check if loader is to be shown
             console.log(showLoader);
+            loaderBgColor = attrs.loaderBgColor; // Get loader wrapper bg color
+            console.log(loaderBgColor); 
 
             // Container for loader element
-            var loaders = [];
+            var loader = [];
 
             // DOM manipulation element declarations
             var imgElement, 
                 parentElement, 
                 imgWrapper, 
                 loaderElement,
-                wrapperStyles = 'position: relative; display: inline-block; background-color: #eee;';
+                wrapperStyles = 'position: relative; display: inline-block; background-color: '+loaderBgColor+';';
 
             // Function to create image wrapper element
             function generateImageWrapper() {
@@ -55,7 +58,7 @@ var ngImageAppear = angular.module('ngImageAppear', []).directive('ngImageAppear
             if(showLoader) {
                 generateImageWrapper(); // Create image wrapper for loader
                 renderLoader(); // Show loader
-                loaders = document.getElementsByClassName('img-loader'); // Get loader element
+                loader = document.getElementsByClassName('img-loader'); // Get loader element
             }
 
             // Detect image load event
@@ -63,8 +66,8 @@ var ngImageAppear = angular.module('ngImageAppear', []).directive('ngImageAppear
                 console.log("img loaded");
 
                 // Remove loader element if present
-                while (loaders[0]) {
-                    loaders[0].parentNode.removeChild(loaders[0]);
+                while (loader[0]) {
+                    loader[0].parentNode.removeChild(loader[0]);
                     imgWrapper.style.backgroundColor = '';
                     imgWrapper.style.position = '';
                 }
