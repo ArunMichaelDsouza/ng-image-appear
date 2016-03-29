@@ -48,7 +48,7 @@ var ngImageAppear = angular.module('ngImageAppear', []).directive('ngImageAppear
                 // Set default css width + unit for img element
                 if(widthUnit === '%') {
                     // Set image element width in %
-                    setImageElementWidth = (imgElementWidth * 100) / parentElementWidth;
+                    setImageElementWidth = Math.round((imgElementWidth * 100) / parentElementWidth);
                     setImageElementWidth+= '%';
 
                     // Set wrapper width to width of image element
@@ -56,7 +56,7 @@ var ngImageAppear = angular.module('ngImageAppear', []).directive('ngImageAppear
                 }
                 else {
                     // Set image element width in px
-                    setImageElementWidth = imgElementWidth;
+                    setImageElementWidth = Math.round(imgElementWidth);
                     setImageElementWidth+= 'px';
 
                     // Set wrapper width to width of image element
@@ -119,7 +119,7 @@ var ngImageAppear = angular.module('ngImageAppear', []).directive('ngImageAppear
                 // Add CSS3 animation/transition to image element
                 $timeout(function() {
                     element.css({
-                        'width': Math.round(setImageElementWidth),
+                        'width': setImageElementWidth,
                         'transition': ' all '+ transitionDurationAttr+'s' +' ease-in-out ',
                         'opacity': 1,
                         'animation': 'fadeInUp .8s'
