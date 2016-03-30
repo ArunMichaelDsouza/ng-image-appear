@@ -32,7 +32,8 @@ var ngImageAppear = angular.module('ngImageAppear', []).directive('ngImageAppear
                 imgWrapper, 
                 loaderElement,
                 wrapperStyles = 'position: relative; display: inline-block; background-color: '+loaderBgColorAttr+';',
-                setImageElementWidth;
+                setImageElementWidth,
+                isSmall = false;
 
             // Function to create image wrapper element
             function generateImageWrapper() {
@@ -71,7 +72,7 @@ var ngImageAppear = angular.module('ngImageAppear', []).directive('ngImageAppear
             };
 
             // Function to render loader
-            function renderLoader(wrapperWidth) {
+            function renderLoader() {
                 loaderElement = document.createElement('img'); 
 
                 // Setting loader object properties to loader element
@@ -79,7 +80,7 @@ var ngImageAppear = angular.module('ngImageAppear', []).directive('ngImageAppear
                     loaderElement[key] = loaderObject[key]; 
                 }
 
-                console.log(wrapperWidth);
+                // Add loader to DOM
                 imgWrapper.appendChild(loaderElement);
             };
 
@@ -88,13 +89,18 @@ var ngImageAppear = angular.module('ngImageAppear', []).directive('ngImageAppear
                 generateImageWrapper(); // Create image wrapper for loader
 
                 var imgWrapperWidth = imgWrapper.offsetWidth;
-                renderLoader(imgWrapperWidth); // Show loader
+
+                // Show loader
+                imgWrapperWidth >= 50 ? renderLoader() : isSmall = true;
             }
 
             // Function to remove loader element from DOM
             function removeLoader() {
-                var elementLoader = element[0].nextSibling; // Get loader of current element
-                elementLoader.parentNode.removeChild(elementLoader);
+
+                if(!isSmall) {
+                    var elementLoader = element[0].nextSibling; // Get loader of current element
+                    elementLoader.parentNode.removeChild(elementLoader); // Remove rendered loader from DOM
+                }
 
                 // Reset default CSS
                 imgWrapper.style.backgroundColor = imgWrapper.style.position = imgElement.style.width = '';
