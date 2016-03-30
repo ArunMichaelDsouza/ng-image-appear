@@ -20,14 +20,14 @@
 			width: 450px;
 			height: auto;
 		}
-		/*@keyframes fadeInUp {
-			0% {
-				transform: translateY(60px);
+		@keyframes fadeInUp {
+			from {
+				transform: translateY(20%);
 			}
-			100% {
+			to {
 				transform: translateY(0px);
 			}
-		}*/
+		}
 	</style>
 </head>
 <body ng-controller="appCtrl">
@@ -39,7 +39,7 @@
 		loader 
 		loader-bg-color="#f3f5f7"
 		animation-type=""
-		width-unit="%"
+		responsive
 	/> 
 	<br/><br/>
 	<section>
@@ -51,7 +51,6 @@
 		loader 
 		loader-bg-color="#f3f5f7"
 		animation-type=""
-		width-unit="px"
 	/> 
 	</section>
 	<br/>
