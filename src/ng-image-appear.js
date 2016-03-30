@@ -11,7 +11,7 @@ var ngImageAppear = angular.module('ngImageAppear', []).directive('ngImageAppear
 
             // Fetching element attributes
             var transitionDurationAttr = attrs.transitionDuration, // Get transition duration
-            showLoaderAttr = element[0].hasAttribute('loader'), // Check if loader is to be shown
+            noLoaderAttr = element[0].hasAttribute('no-loader'), // Check if loader is to be shown
             loaderBgColorAttr = attrs.loaderBgColor, // Get loader wrapper bg color
             loaderImgAttr = attrs.loaderImg, // Get custom loader image
             isResponsive = element[0].hasAttribute('responsive'); // Check is image is to be set responsive or not
@@ -25,7 +25,7 @@ var ngImageAppear = angular.module('ngImageAppear', []).directive('ngImageAppear
 
             // Setting default values for element attributes
             transitionDurationAttr = !transitionDurationAttr ? .4 : transitionDurationAttr; // Set default transition duration - 400ms
-            loaderBgColorAttr = !loaderBgColorAttr ? '#f3f5f7' : loaderBgColorAttr; // Set default bg color for loader wrapper
+            loaderBgColorAttr = !loaderBgColorAttr ? '#f0f0f0' : loaderBgColorAttr; // Set default bg color for loader wrapper
     
             // Set custom loader image if present
             loaderObject.src = loaderImgAttr ? loaderImgAttr : loaderSrc; 
@@ -88,10 +88,11 @@ var ngImageAppear = angular.module('ngImageAppear', []).directive('ngImageAppear
                 imgWrapper.appendChild(loaderElement);
             };
 
-            // Show loader if attribute is present
-            if(showLoaderAttr) {
-                generateImageWrapper(); // Create image wrapper for loader
+            // Create image wrapper for loader
+            generateImageWrapper(); 
 
+            // Show loader if attribute is present
+            if(!noLoaderAttr) {
                 var imgWrapperWidth = imgWrapper.offsetWidth;
 
                 // Show loader
@@ -101,7 +102,7 @@ var ngImageAppear = angular.module('ngImageAppear', []).directive('ngImageAppear
             // Function to remove loader element from DOM
             function removeLoader() {
 
-                if(!isSmall) {
+                if(!isSmall && !noLoaderAttr) {
                     var elementLoader = element[0].nextSibling; // Get loader of current element
                     elementLoader.parentNode.removeChild(elementLoader); // Remove rendered loader from DOM
                 }
