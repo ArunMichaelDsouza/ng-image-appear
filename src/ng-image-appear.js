@@ -23,6 +23,10 @@ var ngImageAppear = angular.module('ngImageAppear', []).directive('ngImageAppear
                 'style': loaderStyle
             };
 
+            // Setting default values for element attributes
+            transitionDurationAttr = !transitionDurationAttr ? .4 : transitionDurationAttr; // Set default transition duration - 400ms
+            loaderBgColorAttr = !loaderBgColorAttr ? '#f3f5f7' : loaderBgColorAttr; // Set default bg color for loader wrapper
+    
             // Set custom loader image if present
             loaderObject.src = loaderImgAttr ? loaderImgAttr : loaderSrc; 
 
