@@ -31,8 +31,9 @@ var ngImageAppear = angular.module('ngImageAppear', []).directive('ngImageAppear
             };
 
             // Setting default values for element attributes
+            var defaultPlaceholderBg = '#f0f0f0';
             transitionDurationAttr = !transitionDurationAttr ? .4 : transitionDurationAttr; // Set default transition duration - 400ms
-            loaderBgColorAttr = !loaderBgColorAttr ? '#f0f0f0' : loaderBgColorAttr; // Set default bg color for loader wrapper
+            loaderBgColorAttr = !loaderBgColorAttr ? defaultPlaceholderBg : loaderBgColorAttr; // Set default bg color for loader wrapper
     
             // Set custom loader image if present
             loaderObject.src = loaderImgAttr ? loaderImgAttr : loaderSrc; 
@@ -48,7 +49,7 @@ var ngImageAppear = angular.module('ngImageAppear', []).directive('ngImageAppear
 
             if(placeholderImg != undefined) {
                 if(placeholderImg === '') {
-                    wrapperStyles += 'background-image: url('+defaultPlaceholder+'); background-size: cover; background-position: center center;';
+                    wrapperStyles += 'background-image: url('+defaultPlaceholder+'); background-size: cover; background-position: center center; background-color: '+defaultPlaceholderBg+';';
                 }
             }
 
