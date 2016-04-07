@@ -51,7 +51,8 @@ var ngImageAppear = angular.module('ngImageAppear', []).directive('ngImageAppear
                 loaderElement,
                 wrapperStyles = 'position: relative; display: inline-block; background-color: '+loaderBgColorAttr+'; ',
                 setImageElementWidth,
-                isSmall = false;
+                isSmall = false,
+                hasShownLoader = false;
 
 
             if(placeholderImgAttr != undefined) {
@@ -101,15 +102,39 @@ var ngImageAppear = angular.module('ngImageAppear', []).directive('ngImageAppear
 
             // Function to render loader
             function renderLoader() {
-                loaderElement = document.createElement('img'); 
+                
+                // Show loader in DOM
+                function showLoader() {
+                    loaderElement = document.createElement('img'); 
 
-                // Setting loader object properties to loader element
-                for(var key in loaderObject) {
-                    loaderElement[key] = loaderObject[key]; 
+                    // Adding loader object properties to loader element
+                    for(var key in loaderObject) {
+                        loaderElement[key] = loaderObject[key]; 
+                    }
+
+                    // Add loader to DOM
+                    imgWrapper.appendChild(loaderElement);
+                    hasShownLoader = true;
+                };
+
+                // Check custom loader image extension
+                if(loaderImgAttr) {
+                    var fileType = loaderImgAttr.split('.').pop();
+                    fileType = fileType.substring(0,3);
+
+                    // Show loader if gif file is present
+                    if(fileType === 'gif') {
+                        showLoader();
+                    }
+                    // Else throw warning in console
+                    else {
+                        console.warn('The custom loader image should be a proper gif. Read full documentation here - https://github.com/ArunMichaelDsouza/ng-image-appear');
+                    }
+                }
+                else {
+                    showLoader();
                 }
 
-                // Add loader to DOM
-                imgWrapper.appendChild(loaderElement);
             };
 
             // Create image wrapper for loader
@@ -126,7 +151,7 @@ var ngImageAppear = angular.module('ngImageAppear', []).directive('ngImageAppear
             // Function to remove loader element from DOM
             function removeLoader() {
 
-                if(!isSmall && !noLoaderAttr) {
+                if(!isSmall && !noLoaderAttr && hasShownLoader) {
                     var elementLoader = element[0].nextSibling; // Get loader of current element
                     elementLoader.parentNode.removeChild(elementLoader); // Remove rendered loader from DOM
                 }
