@@ -52,12 +52,9 @@ ngImageAppear.directive('ngImageAppear',['$timeout', function($timeout) {
                 loaderImgAttr = attrs.loaderImg, // Get custom loader image
                 loaderClassAttr = attrs.loaderClass, // Set CSS class for loader element
                 loaderStyleAttr = attrs.loaderStyle, // Set custom styles for loader element
+                animationDurationAttr = attrs.animationDuration,
+                animationTypeAttr = attrs.animationType,
                 isResponsiveAttr = element[0].hasAttribute('responsive'); // Check is image is to be set responsive or not
-
-            // Transition duration unit removal
-            if(transitionDurationAttr != undefined) {
-                transitionDurationAttr= transitionDurationAttr.replace(/s/g, '');
-            }
 
             // Loader color attribute special characters removal
             if(loaderBgColorAttr != undefined) {
@@ -82,7 +79,7 @@ ngImageAppear.directive('ngImageAppear',['$timeout', function($timeout) {
             } 
 
             // Setting default values for element attributes
-            transitionDurationAttr = !transitionDurationAttr ? .4 : transitionDurationAttr; // Set default transition duration - 400ms
+            transitionDurationAttr = !transitionDurationAttr ? .4+'s' : transitionDurationAttr; // Set default transition duration - 400ms
             loaderBgColorAttr = !loaderBgColorAttr ? defaultBackgroundColor : '#'+loaderBgColorAttr; // Set default bg color for loader wrapper
     
             // Set custom loader image if present
@@ -221,6 +218,17 @@ ngImageAppear.directive('ngImageAppear',['$timeout', function($timeout) {
                 wrapperParent.replaceChild(element[0], wrapper);
             };
 
+            
+            var animationText;
+
+            function animate() {
+                animationText = animationTypeAttr+' '+animationDurationAttr;
+            };
+
+            if(animationDurationAttr != undefined && animationDurationAttr != '') {
+                animate();
+            }
+
             // Detect image load event
             element.bind('load', function() {
                 console.log("img loaded");
@@ -234,9 +242,9 @@ ngImageAppear.directive('ngImageAppear',['$timeout', function($timeout) {
                 $timeout(function() {
                     element.css({
                         'width': setImageElementWidth,
-                        'transition': ' all '+ transitionDurationAttr+'s' +' ease-in-out ',
+                        'transition': ' all '+ transitionDurationAttr +' ease-in-out ',
                         'opacity': 1,
-                        'animation': 'fadeInUp .8s'
+                        'animation': animationText
                     });
                 }, 0); // Timeout to clear stack and rebuild DOM
             });

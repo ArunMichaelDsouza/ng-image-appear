@@ -26,14 +26,14 @@
 		.placeholder-class {
 			background-size: contain;
 		}
-		/*@keyframes fadeInUp {
+		@keyframes fadeInUp {
 			from {
 				transform: translateY(20%);
 			}
 			to {
 				transform: translateY(0px);
 			}
-		}*/
+		}
 	</style>
 </head>
 <body ng-controller="appCtrl">
@@ -49,6 +49,8 @@
 		loader-bg-color="#000;"
 		placeholder-class="placeholder-class"
 		placeholder-style="background-size: 50%; background-position: 10px -20px;"
+		animation-type="fadeInUp"
+		animation-duration="2s"
 	/> 
 	<br/><br/>
 	<section>
@@ -57,9 +59,8 @@
 		placeholder-img
 		src="https://www.planwallpaper.com/static/images/3D-Beach-Wallpaper-HD-Download.jpg" 
 		ng-image-appear 
-		transition-duration="3s" 
+		transition-duration=".8s" 
 		loader-bg-color="#aaa"
-		animation-type=""
 	/> 
 	</section>
 	<br/>
