@@ -176,20 +176,20 @@ var ngImageAppear = angular.module('ngImageAppear', []).directive('ngImageAppear
             element.bind('load', function() {
                 console.log("img loaded");
 
-                // removeLoader(); // Remove loader element once image is loaded
+                removeLoader(); // Remove loader element once image is loaded
 
-                // // Remove image wrapper from DOM
-                // removeImgWrapper();
+                // Remove image wrapper from DOM
+                removeImgWrapper();
                 
-                // // Add CSS3 animation/transition to image element
-                // $timeout(function() {
-                //     element.css({
-                //         'width': setImageElementWidth,
-                //         'transition': ' all '+ transitionDurationAttr+'s' +' ease-in-out ',
-                //         'opacity': 1,
-                //         'animation': 'fadeInUp .8s'
-                //     });
-                // }, 0); // Timeout to clear stack and rebuild DOM
+                // Add CSS3 animation/transition to image element
+                $timeout(function() {
+                    element.css({
+                        'width': setImageElementWidth,
+                        'transition': ' all '+ transitionDurationAttr+'s' +' ease-in-out ',
+                        'opacity': 1,
+                        'animation': 'fadeInUp .8s'
+                    });
+                }, 0); // Timeout to clear stack and rebuild DOM
             });
         }
     };
