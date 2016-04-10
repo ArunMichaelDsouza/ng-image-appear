@@ -3,21 +3,23 @@
 // Declaring ngImageAppear module
 var ngImageAppear = angular.module('ngImageAppear', []);
 
-// Default background color of image wrapper
+// Default background color for image wrapper
 var defaultBackgroundColor = '#f0f0f0';
 
 // ngImageAppear initialization code
 ngImageAppear.run(function() {
 
-    // Creating default stylesheet for element
+    // Creating default stylesheet for elements
     var defaultStylesheet;
     var head = document.getElementsByTagName('head')[0];
     if(defaultStylesheet == undefined) {
         defaultStylesheet = document.createElement('style');
 
-        // Default css styles for element classes
+        // Default CSS styles for element classes
         var css = '.ngImageAppearLoader {width: 40px; height: 40px; position: absolute; left: calc((100% - 40px) / 2); top: calc((100% - 40px) / 2);} \
                    .ngImageAppearPlaceholder {position: relative; display: inline-block; background-size: cover; background-repeat: no-repeat; background-position: center center; background-color: '+defaultBackgroundColor+';}';
+        
+        // Adding CSS text to default stylesheet
         defaultStylesheet.appendChild(document.createTextNode(css));
 
         // Prepend default stylesheet to head 
@@ -31,26 +33,26 @@ ngImageAppear.directive('ngImageAppear',['$timeout', function($timeout) {
         restrict: 'A',
         link: function(scope, element, attrs) {
 
-            // Hiding image element from view during page load
+            // Hiding image element from view 
             element.css({
                 'opacity': 0
             });
 
-            // Set default styles for element
+            // Set default CSS classes for elements
             var defaultLoaderClass = 'ngImageAppearLoader',
                 defaultPlaceholderClass = 'ngImageAppearPlaceholder';
 
             // Fetching element attributes
             var transitionDurationAttr = attrs.transitionDuration, // Get transition duration
-            noLoaderAttr = element[0].hasAttribute('no-loader'), // Check if loader is to be shown
-            placeholderImgAttr = attrs.placeholderImg, // Check if placeholder image is to be shown
-            placeholderClassAttr = attrs.placeholderClass,
-            placeholderStyleAttr = attrs.placeholderStyle,
-            loaderBgColorAttr = attrs.loaderBgColor, // Get loader wrapper bg color
-            loaderImgAttr = attrs.loaderImg, // Get custom loader image
-            loaderClassAttr = attrs.loaderClass, // Set css class to loader element
-            loaderStyleAttr = attrs.loaderStyle, // Set custom styles for loader element
-            isResponsiveAttr = element[0].hasAttribute('responsive'); // Check is image is to be set responsive or not
+                noLoaderAttr = element[0].hasAttribute('no-loader'), // Check if loader is to be shown
+                placeholderImgAttr = attrs.placeholderImg, // Check if placeholder image is to be shown
+                placeholderClassAttr = attrs.placeholderClass, // Set CSS class for placeholder (image wrapper)
+                placeholderStyleAttr = attrs.placeholderStyle, // Set CSS styles for placeholder (image wrapper)
+                loaderBgColorAttr = attrs.loaderBgColor, // Get loader wrapper bg color
+                loaderImgAttr = attrs.loaderImg, // Get custom loader image
+                loaderClassAttr = attrs.loaderClass, // Set CSS class for loader element
+                loaderStyleAttr = attrs.loaderStyle, // Set custom styles for loader element
+                isResponsiveAttr = element[0].hasAttribute('responsive'); // Check is image is to be set responsive or not
 
             // Transition duration unit removal
             if(transitionDurationAttr != undefined) {
@@ -69,7 +71,7 @@ ngImageAppear.directive('ngImageAppear',['$timeout', function($timeout) {
                 'className': defaultLoaderClass
             };
 
-            // Attach css class to loader element if attribute is present
+            // Attach CSS class to loader element if attribute is present
             if(loaderClassAttr != undefined) {
                 loaderObject.className += ' '+loaderClassAttr;
             }
@@ -114,21 +116,21 @@ ngImageAppear.directive('ngImageAppear',['$timeout', function($timeout) {
                 var imgElementWidth = element[0].offsetWidth; // Get width of image element
                 var parentElementWidth = parentElement.offsetWidth; // Get width of parent element
 
-                wrapperStyles += placeholderStyleAttr;
-                console.log(wrapperStyles);
+                // Append placeholder styles to image wrapper if attribute is present
+                if(placeholderStyleAttr != undefined && placeholderStyleAttr != '') {
+                    wrapperStyles += placeholderStyleAttr;
+                }
 
                 imgWrapper = document.createElement('div'); // Create wrapper element for image
                 imgWrapper.setAttribute('style', wrapperStyles); // Set default CSS for wrapper element
+                imgWrapper.className = 'ngImageAppearPlaceholder'; // Attach default CSS placeholder class to image wrapper
 
-                console.log(placeholderStyleAttr);
-
-
-                imgWrapper.className = 'ngImageAppearPlaceholder';
+                // Append placeholder custom class if attribute is present
                 if(placeholderClassAttr != undefined && placeholderClassAttr != '') {
                     imgWrapper.className += ' '+placeholderClassAttr;
                 }
 
-                // Set default css width + unit for img element
+                // Set default CSS width + unit for img element
                 if(isResponsiveAttr) {
                     // Set image element width in %
                     setImageElementWidth = Math.round((imgElementWidth * 100) / parentElementWidth);
@@ -223,20 +225,20 @@ ngImageAppear.directive('ngImageAppear',['$timeout', function($timeout) {
             element.bind('load', function() {
                 console.log("img loaded");
 
-                // removeLoader(); // Remove loader element once image is loaded
+                removeLoader(); // Remove loader element once image is loaded
 
-                // // Remove image wrapper from DOM
-                // removeImgWrapper();
+                // Remove image wrapper from DOM
+                removeImgWrapper();
                 
-                // // Add CSS3 animation/transition to image element
-                // $timeout(function() {
-                //     element.css({
-                //         'width': setImageElementWidth,
-                //         'transition': ' all '+ transitionDurationAttr+'s' +' ease-in-out ',
-                //         'opacity': 1,
-                //         'animation': 'fadeInUp .8s'
-                //     });
-                // }, 0); // Timeout to clear stack and rebuild DOM
+                // Add CSS3 animation/transition to image element
+                $timeout(function() {
+                    element.css({
+                        'width': setImageElementWidth,
+                        'transition': ' all '+ transitionDurationAttr+'s' +' ease-in-out ',
+                        'opacity': 1,
+                        'animation': 'fadeInUp .8s'
+                    });
+                }, 0); // Timeout to clear stack and rebuild DOM
             });
         }
     };
