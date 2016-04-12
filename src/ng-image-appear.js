@@ -16,7 +16,8 @@ ngImageAppear.run(function() {
         defaultStylesheet = document.createElement('style');
 
         // Default CSS styles for element classes
-        var css = '.ngImageAppearLoader {width: 40px; height: 40px; position: absolute; left: calc((100% - 40px) / 2); top: calc((100% - 40px) / 2);} \
+        var css = '@keyframes fadeInUp{from{transform:translate3d(0,20%,0)}to{transform:translate3d(0,0,0)}}@keyframes fadeInDown{from{transform:translate3d(0,-20%,0)}to{transform:translate3d(0,0,0)}}@keyframes fadeInLeft{from{transform:translate3d(-20%,0,0)}to{transform:translate3d(0,0,0)}}@keyframes fadeInRight{from{transform:translate3d(20%,0,0)}to{transform:translate3d(0,0,0)}} \
+                   .ngImageAppearLoader {width: 40px; height: 40px; position: absolute; left: calc((100% - 40px) / 2); top: calc((100% - 40px) / 2);} \
                    .ngImageAppearPlaceholder {position: relative; display: inline-block; background-size: cover; background-repeat: no-repeat; background-position: center center; background-color: '+defaultBackgroundColor+';}';
         
         // Adding CSS text to default stylesheet
