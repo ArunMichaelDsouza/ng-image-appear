@@ -1,3 +1,6 @@
+/* Animations for ng-image-appear */
+
+/* Fade in */
 @keyframes fadeInUp {
     from {
         transform: translate3d(0, 20%, 0)
@@ -7,6 +10,7 @@
     }
 }
 
+/* Fade in down */
 @keyframes fadeInDown {
     from {
         transform: translate3d(0, -20%, 0)
@@ -16,6 +20,7 @@
     }
 }
 
+/* Fade in left */
 @keyframes fadeInLeft {
     from {
         transform: translate3d(-20%, 0, 0)
@@ -25,6 +30,7 @@
     }
 }
 
+/* Fade in right */
 @keyframes fadeInRight {
     from {
         transform: translate3d(20%, 0, 0)

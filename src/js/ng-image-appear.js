@@ -1,3 +1,9 @@
+/*
+    ng-image-appear v0.1.0
+    Copyright (c) 2016 Arun Michael Dsouza (amdsouza92@gmail.com)
+    Licence: MIT
+*/
+
 "use strict";
 
 // Declaring ngImageAppear module
