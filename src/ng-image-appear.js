@@ -79,9 +79,10 @@ ngImageAppear.directive('ngImageAppear',['$timeout', function($timeout) {
             } 
 
             // Setting default values for element attributes
-            transitionDurationAttr = !transitionDurationAttr ? .4+'s' : transitionDurationAttr; // Set default transition duration - 400ms
-            loaderBgColorAttr = !loaderBgColorAttr ? defaultBackgroundColor : '#'+loaderBgColorAttr; // Set default bg color for loader wrapper
-    
+            transitionDurationAttr = !transitionDurationAttr ? .7+'s' : transitionDurationAttr; // Set default transition duration - 700ms
+            loaderBgColorAttr = !loaderBgColorAttr ? defaultBackgroundColor : '#'+loaderBgColorAttr, // Set default bg color for loader wrapper
+            animationDurationAttr = !animationDurationAttr ? .7+'s' : animationDurationAttr; // Set default transition duration - 700ms
+
             // Set custom loader image if present
             loaderObject.src = loaderImgAttr ? loaderImgAttr : loaderSrc; 
 

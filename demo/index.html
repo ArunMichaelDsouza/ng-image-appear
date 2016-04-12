@@ -28,10 +28,34 @@
 		}
 		@keyframes fadeInUp {
 			from {
-				transform: translateY(20%);
+				transform: translate3d(0, 20%, 0);
 			}
 			to {
-				transform: translateY(0px);
+				transform: translate3d(0, 0, 0);
+			}
+		}
+		@keyframes fadeInDown {
+			from {
+				transform: translate3d(0, -20%, 0);
+			}
+			to {
+				transform: translate3d(0, 0, 0);
+			}
+		}
+		@keyframes fadeInLeft {
+			from {
+				transform: translate3d(-20%, 0, 0);
+			}
+			to {
+				transform: translate3d(0, 0, 0);
+			}
+		}
+		@keyframes fadeInRight {
+			from {
+				transform: translate3d(20%, 0, 0);
+			}
+			to {
+				transform: translate3d(0, 0, 0);
 			}
 		}
 	</style>
@@ -49,8 +73,7 @@
 		loader-bg-color="#000;"
 		placeholder-class="placeholder-class"
 		placeholder-style="background-size: 50%; background-position: 10px -20px;"
-		animation-type="fadeInUp"
-		animation-duration="2s"
+		animation-type="fadeInRight"
 	/> 
 	<br/><br/>
 	<section>
