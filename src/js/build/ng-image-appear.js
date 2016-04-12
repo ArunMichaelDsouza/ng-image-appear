@@ -15,7 +15,8 @@ ngImageAppear.run(function() {
     if(defaultStylesheet == undefined) {
         defaultStylesheet = document.createElement('style');
 
-        // Default CSS styles for element classes
+        // Default CSS stylesheet
+        // Styles for elements + animations
         var css = '@keyframes fadeInUp{from{transform:translate3d(0,20%,0)}to{transform:translate3d(0,0,0)}}@keyframes fadeInDown{from{transform:translate3d(0,-20%,0)}to{transform:translate3d(0,0,0)}}@keyframes fadeInLeft{from{transform:translate3d(-20%,0,0)}to{transform:translate3d(0,0,0)}}@keyframes fadeInRight{from{transform:translate3d(20%,0,0)}to{transform:translate3d(0,0,0)}} \
                    .ngImageAppearLoader {width: 40px; height: 40px; position: absolute; left: calc((100% - 40px) / 2); top: calc((100% - 40px) / 2);} \
                    .ngImageAppearPlaceholder {position: relative; display: inline-block; background-size: cover; background-repeat: no-repeat; background-position: center center; background-color: '+defaultBackgroundColor+';}';
@@ -34,7 +35,7 @@ ngImageAppear.directive('ngImageAppear',['$timeout', function($timeout) {
         restrict: 'A',
         link: function(scope, element, attrs) {
 
-            // Hiding image element from view 
+            // Hide image element from view 
             element.css({
                 'opacity': 0
             });
@@ -95,7 +96,8 @@ ngImageAppear.directive('ngImageAppear',['$timeout', function($timeout) {
                 wrapperStyles = 'background-color: '+loaderBgColorAttr+'; ',
                 setImageElementWidth,
                 isSmall = false,
-                hasShownLoader = false;
+                hasShownLoader = false,
+                animationText;
 
             // Add placeholder image if attribute is present
             if(placeholderImgAttr != undefined) {
@@ -220,15 +222,9 @@ ngImageAppear.directive('ngImageAppear',['$timeout', function($timeout) {
                 wrapperParent.replaceChild(element[0], wrapper);
             };
 
-            
-            var animationText;
-
-            function animate() {
-                animationText = animationTypeAttr+' '+animationDurationAttr;
-            };
-
+            // Create animation sequence if attribute is present
             if(animationDurationAttr != undefined && animationDurationAttr != '') {
-                animate();
+                animationText = animationTypeAttr+' '+animationDurationAttr;
             }
 
             // Detect image load event
@@ -240,13 +236,13 @@ ngImageAppear.directive('ngImageAppear',['$timeout', function($timeout) {
                 // Remove image wrapper from DOM
                 removeImgWrapper();
                 
-                // Add CSS3 animation/transition to image element
+                // Make element appear with transition/animation
                 $timeout(function() {
                     element.css({
-                        'width': setImageElementWidth,
-                        'transition': ' all '+ transitionDurationAttr +' ease-in-out ',
-                        'opacity': 1,
-                        'animation': animationText
+                        'width': setImageElementWidth, // Set computed element width
+                        'transition': ' all '+ transitionDurationAttr +' ease-in-out ', // Set transition duration
+                        'opacity': 1, // Show image element in view
+                        'animation': animationTypeAttr ? animationText : '' // Set element animation
                     });
                 }, 0); // Timeout to clear stack and rebuild DOM
             });
