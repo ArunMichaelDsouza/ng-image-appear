@@ -1,5 +1,6 @@
 /* Animations for ng-image-appear */
 
+
 /* Fade in */
 @keyframes fadeInUp {
     from {
@@ -9,6 +10,7 @@
         transform: translate3d(0, 0, 0)
     }
 }
+
 
 /* Fade in down */
 @keyframes fadeInDown {
@@ -20,6 +22,7 @@
     }
 }
 
+
 /* Fade in left */
 @keyframes fadeInLeft {
     from {
@@ -30,6 +33,7 @@
     }
 }
 
+
 /* Fade in right */
 @keyframes fadeInRight {
     from {
@@ -39,3 +43,125 @@
         transform: translate3d(0, 0, 0)
     }
 }
+
+
+/* Bounce in */
+@keyframes bounceIn {
+    from {
+        transform: scale3d(.3, .3, .3);
+    }
+    20% {
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+    40% {
+        transform: scale3d(.9, .9, .9);
+    }
+    60% {
+        transform: scale3d(1.03, 1.03, 1.03);
+    }
+    80% {
+        transform: scale3d(.97, .97, .97);
+    }
+    to {
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+
+/* Bounce in up */
+@keyframes bounceInUp {
+    from {
+        transform: translate3d(0, 20%, 0);
+    }
+    60% {
+        transform: translate3d(0, -25px, 0);
+    }
+    75% {
+        transform: translate3d(0, 10px, 0);
+    }
+    90% {
+        transform: translate3d(0, -5px, 0);
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+
+/* Bounce in down */
+@keyframes bounceInDown {
+    from {
+        transform: translate3d(0, -20%, 0);
+    }
+    60% {
+        transform: translate3d(0, 25px, 0);
+    }
+    75% {
+        transform: translate3d(0, -10px, 0);
+    }
+    90% {
+        transform: translate3d(0, 5px, 0);
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+/* Bounce in left */
+@keyframes bounceInLeft {
+    from {
+        transform: translate3d(-20%, 0, 0);
+    }
+    60% {
+        transform: translate3d(25px, 0, 0);
+    }
+    75% {
+        transform: translate3d(-10px, 0, 0);
+    }
+    90% {
+        transform: translate3d(5px, 0, 0);
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+/* Bounce in right */
+@keyframes bounceInRight {
+    from {
+        transform: translate3d(20%, 0, 0);
+    }
+    60% {
+        transform: translate3d(-25px, 0, 0);
+    }
+    75% {
+        transform: translate3d(10px, 0, 0);
+    }
+    90% {
+        transform: translate3d(-5px, 0, 0);
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
