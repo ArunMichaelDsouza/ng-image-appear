@@ -1,6 +1,5 @@
 /* Animations for ng-image-appear */
 
-
 /* Fade in up */
 @keyframes fadeInUp {
     from {
@@ -10,7 +9,6 @@
         transform: translate3d(0, 0, 0)
     }
 }
-
 
 /* Fade in down */
 @keyframes fadeInDown {
@@ -22,7 +20,6 @@
     }
 }
 
-
 /* Fade in left */
 @keyframes fadeInLeft {
     from {
@@ -33,7 +30,6 @@
     }
 }
 
-
 /* Fade in right */
 @keyframes fadeInRight {
     from {
@@ -43,7 +39,6 @@
         transform: translate3d(0, 0, 0)
     }
 }
-
 
 /* Bounce in */
 @keyframes bounceIn {
@@ -67,7 +62,6 @@
     }
 }
 
-
 /* Bounce in up */
 @keyframes bounceInUp {
     from {
@@ -86,7 +80,6 @@
         transform: translate3d(0, 0, 0);
     }
 }
-
 
 /* Bounce in down */
 @keyframes bounceInDown {
@@ -107,7 +100,6 @@
     }
 }
 
-
 /* Bounce in left */
 @keyframes bounceInLeft {
     from {
@@ -127,7 +119,6 @@
     }
 }
 
-
 /* Bounce in right */
 @keyframes bounceInRight {
     from {
@@ -146,7 +137,6 @@
         transform: translate3d(0, 0, 0);
     }
 }
-
 
 /* Flip in x */
 @keyframes flipInX {
@@ -169,7 +159,6 @@
     }
 }
 
-
 /* Flip in y */
 @keyframes flipInY {
     from {
@@ -190,7 +179,6 @@
         transform: perspective(400px);
     }
 }
-
 
 /* Zoom in */
 @keyframes zoomIn {
