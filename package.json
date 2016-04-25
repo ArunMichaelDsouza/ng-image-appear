@@ -30,5 +30,8 @@
     "grunt-contrib-uglify": "^1.0.1",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-string-replace": "^1.2.1"
+  },
+  "jshintConfig": {
+    "multistr": true
   }
 }
