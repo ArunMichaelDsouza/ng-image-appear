@@ -1,44 +1,49 @@
 /* Animations for ng-image-appear */
 
+
 /* Fade in up */
 @keyframes fadeInUp {
     from {
-        transform: translate3d(0, 20%, 0)
+        transform: translate3d(0, 20%, 0);
     }
     to {
-        transform: translate3d(0, 0, 0)
+        transform: translate3d(0, 0, 0);
     }
 }
+
 
 /* Fade in down */
 @keyframes fadeInDown {
     from {
-        transform: translate3d(0, -20%, 0)
+        transform: translate3d(0, -20%, 0);
     }
     to {
-        transform: translate3d(0, 0, 0)
+        transform: translate3d(0, 0, 0);
     }
 }
+
 
 /* Fade in left */
 @keyframes fadeInLeft {
     from {
-        transform: translate3d(-20%, 0, 0)
+        transform: translate3d(-20%, 0, 0);
     }
     to {
-        transform: translate3d(0, 0, 0)
+        transform: translate3d(0, 0, 0);
     }
 }
+
 
 /* Fade in right */
 @keyframes fadeInRight {
     from {
-        transform: translate3d(20%, 0, 0)
+        transform: translate3d(20%, 0, 0);
     }
     to {
-        transform: translate3d(0, 0, 0)
+        transform: translate3d(0, 0, 0);
     }
 }
+
 
 /* Bounce in */
 @keyframes bounceIn {
@@ -62,6 +67,7 @@
     }
 }
 
+
 /* Bounce in up */
 @keyframes bounceInUp {
     from {
@@ -80,6 +86,7 @@
         transform: translate3d(0, 0, 0);
     }
 }
+
 
 /* Bounce in down */
 @keyframes bounceInDown {
@@ -100,6 +107,7 @@
     }
 }
 
+
 /* Bounce in left */
 @keyframes bounceInLeft {
     from {
@@ -119,6 +127,7 @@
     }
 }
 
+
 /* Bounce in right */
 @keyframes bounceInRight {
     from {
@@ -137,6 +146,7 @@
         transform: translate3d(0, 0, 0);
     }
 }
+
 
 /* Flip in x */
 @keyframes flipInX {
@@ -159,6 +169,7 @@
     }
 }
 
+
 /* Flip in y */
 @keyframes flipInY {
     from {
@@ -180,6 +191,7 @@
     }
 }
 
+
 /* Zoom in */
 @keyframes zoomIn {
     from {
@@ -190,6 +202,7 @@
     }
 }
 
+
 /* Blur in */
 @keyframes blurIn {
     from {
@@ -198,6 +211,74 @@
     }
     to {
         -webkit-filter: blur(0);
-        filter: blur(0);  
+        filter: blur(0);
+    }
+}
+
+
+/* Blur in up */
+@keyframes blurInUp {
+    from {
+        opacity: 0;
+        -webkit-filter: blur(15px);
+        filter: blur(15px);
+        transform: translate3d(0, 20%, 0);
+    }
+    to {
+        opacity: 1;
+        -webkit-filter: blur(0);
+        filter: blur(0);
+        transform: none;
+    }
+}
+
+
+/* Blur in left */
+@keyframes blurInLeft {
+    from {
+        opacity: 0;
+        -webkit-filter: blur(15px);
+        filter: blur(15px);
+        transform: translate3d(-20%, 0, 0);
+    }
+    to {
+        opacity: 1;
+        -webkit-filter: blur(0);
+        filter: blur(0);
+        transform: none;
+    }
+}
+
+
+/* Blur in right */
+@keyframes blurInRight {
+    from {
+        opacity: 0;
+        -webkit-filter: blur(15px);
+        filter: blur(15px);
+        transform: translate3d(20%, 0, 0);
+    }
+    to {
+        opacity: 1;
+        -webkit-filter: blur(0);
+        filter: blur(0);
+        transform: none;
+    }
+}
+
+
+/* Blur in down */
+@keyframes blurInDown {
+    from {
+        opacity: 0;
+        -webkit-filter: blur(15px);
+        filter: blur(15px);
+        transform: translate3d(0, -20%, 0);
+    }
+    to {
+        opacity: 1;
+        -webkit-filter: blur(0);
+        filter: blur(0);
+        transform: none;
     }
 }
