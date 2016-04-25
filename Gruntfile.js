@@ -10,7 +10,14 @@ module.exports = function(grunt) {
         cssmin: {
             target: {
                 files: {
-                    'src/css/build/animations.min.css': ['src/css/animations.css']
+                    'src/css/build/animations.min.css': ['src/css/build/animations.min.css']
+                }
+            }
+        },
+        autoprefixer: {
+            dist: {
+                files: {
+                    'src/css/build/animations.min.css': 'src/css/animations.css'
                 }
             }
         },
@@ -24,7 +31,7 @@ module.exports = function(grunt) {
             },
             styles: {
                 files: ['src/css/animations.css'],
-                tasks: ['cssmin', 'string-replace', 'uglify'],
+                tasks: ['autoprefixer', 'cssmin', 'string-replace', 'uglify'],
                 options: {
                     spawn: false,
                 },
@@ -36,12 +43,10 @@ module.exports = function(grunt) {
                     'src/js/build/ng-image-appear.js': 'src/js/ng-image-appear.js',
                 },
                 options: {
-                    replacements: [
-                        {
-                            pattern: '@animation',
-                            replacement: '<%= grunt.file.read("src/css/build/animations.min.css") %>'
-                        }
-                    ]
+                    replacements: [{
+                        pattern: '@animation',
+                        replacement: '<%= grunt.file.read("src/css/build/animations.min.css") %>'
+                    }]
                 }
             }
         }
@@ -50,5 +55,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-string-replace');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-autoprefixer');
     grunt.registerTask('default', ['watch']);
 };
