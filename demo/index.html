@@ -34,14 +34,15 @@
 		src="https://newevolutiondesigns.com/images/freebies/tropical-beach-background-8.jpg" 
 		ng-image-appear 
 		responsive
-		placeholder-img="http://getuikit.com/docs/images/placeholder_600x400.svg"
+		transition-duration="1s"
+		placeholder="http://getuikit.com/docs/images/placeholder_600x400.svg"
 		loader-img="https://www.thepros.com/controls/images/loading.gif"
 		loader-class="loader-class"
 		loader-style="background-color: red;"
 		bg-color="#000;"
 		placeholder-class="placeholder-class"
 		placeholder-style="background-size: 50%; background-position: 10px -20px;"
-		animation-type="fillIn"
+		animation="fillIn"
 		animation-duration="1s"
 		easing="ease-out"
 	/> 
@@ -59,7 +60,7 @@
 	<br/>
 	<img class="img3" src="https://newevolutiondesigns.com/images/freebies/tropical-beach-background-8.jpg"/> 
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
-	<script src="../src/js/build/ng-image-appear.js"></script>
+	<script src="../dist/ng-image-appear.min.js"></script>
 	<script>
 		var myApp = angular.module('myApp', ['ngImageAppear']);
 
