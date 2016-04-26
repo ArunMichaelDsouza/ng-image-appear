@@ -1,5 +1,5 @@
 /*
-    ng-image-appear v0.1.0
+    ng-image-appear v1.4.10
     Copyright (c) 2016 Arun Michael Dsouza (amdsouza92@gmail.com)
     Licence: MIT
 */
