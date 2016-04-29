@@ -32,7 +32,6 @@
     "grunt-string-replace": "^1.2.1"
   },
   "jshintConfig": {
-    "multistr": true,
     "devel": true
   }
 }

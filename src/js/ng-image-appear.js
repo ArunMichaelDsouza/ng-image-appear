@@ -26,9 +26,7 @@
 
             // Default CSS stylesheet
             // Styles for elements + animations
-            var css = '@animation \
-                       .ngImageAppearLoader {width: 40px; height: 40px; position: absolute; left: calc((100% - 40px) / 2); top: calc((100% - 40px) / 2);} \
-                       .ngImageAppearPlaceholder {position: relative; display: inline-block; background-size: cover; background-repeat: no-repeat; background-position: center center; background-color: '+defaultBackgroundColor+';}';
+            var css = '@animation .ngImageAppearLoader {width: 40px; height: 40px; position: absolute; left: calc((100% - 40px) / 2); top: calc((100% - 40px) / 2);} .ngImageAppearPlaceholder {position: relative; display: inline-block; background-size: cover; background-repeat: no-repeat; background-position: center center; background-color: '+defaultBackgroundColor+';}';
             
             // Adding CSS text to default stylesheet
             defaultStylesheet.appendChild(document.createTextNode(css));
