@@ -32,6 +32,9 @@
     "grunt-string-replace": "^1.2.1"
   },
   "jshintConfig": {
-    "devel": true
+    "devel": true,
+    "globals": {
+      "angular": false
+    }
   }
 }
