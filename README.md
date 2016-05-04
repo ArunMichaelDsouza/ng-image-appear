@@ -1,7 +1,7 @@
-# ng-image-appear [v1.4.10]
+# ng-image-appear
 AngularJS Module to make images appear with transition as they load. 
 
-### [Demo on CodePen]()
+### [Demo on CodePen](http://codepen.io/amdsouza92/full/aNQeWW/)
 
 ## Installation
 

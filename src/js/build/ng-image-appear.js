@@ -123,6 +123,18 @@
                     var imgElementWidth = element[0].offsetWidth; // Get width of image element
                     var parentElementWidth = parentElement.offsetWidth; // Get width of parent element
 
+                    if(imgElementWidth === 0) {
+                        var interval = setInterval(function() {
+                            if(imgElementWidth !== 0) {
+                                clearInterval(interval);
+                            }
+                            else {
+                                imgElementWidth = element[0].naturalWidth;
+                                console.log(imgElementWidth);
+                            }
+                        }, 100);
+                    }
+
                     // Append placeholder styles to image wrapper if attribute is present
                     if(placeholderStyleAttr !== undefined && placeholderStyleAttr !== '') {
                         wrapperStyles += placeholderStyleAttr;

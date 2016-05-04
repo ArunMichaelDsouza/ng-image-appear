@@ -8,57 +8,22 @@
 		body {
 			background-color: #aaa;
 		}
-		.img1 {
+		.img {
 			width: 60%;
 			height: auto;
-		}
-		.img2 {
-			width: 70px;
-			height: auto;
-		}
-		.img3 {
-			width: 450px;
-			height: auto;
-		}
-		.loader-class {
-			background-color: rgba(255,255,255,.65);
-		}
-		.placeholder-class {
-			background-size: contain;
 		}
 	</style>
 </head>
 <body ng-controller="appCtrl">
 	<img 
-		class="img1" 
 		src="https://newevolutiondesigns.com/images/freebies/tropical-beach-background-8.jpg" 
 		ng-image-appear 
 		responsive
 		transition-duration="1s"
-		placeholder="http://getuikit.com/docs/images/placeholder_600x400.svg"
-		loader-img="https://www.thepros.com/controls/images/loading.gif"
-		loader-class="loader-class"
-		loader-style="background-color: red;"
-		bg-color="#000;"
-		placeholder-class="placeholder-class"
-		placeholder-style="background-size: 50%; background-position: 10px -20px;"
 		animation="fillIn"
 		animation-duration="1s"
 		easing="ease-out"
 	/> 
-	<br/><br/>
-	<section>
-		<img 
-		class="img2" 
-		placeholder-img
-		src="https://newevolutiondesigns.com/images/freebies/tropical-beach-background-8.jpg" 
-		ng-image-appear 
-		transition-duration=".8s" 
-		loader-bg-color="#aaa"
-	/> 
-	</section>
-	<br/>
-	<img class="img3" src="https://newevolutiondesigns.com/images/freebies/tropical-beach-background-8.jpg"/> 
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
 	<script src="../dist/ng-image-appear.min.js"></script>
 	<script>
