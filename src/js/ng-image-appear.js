@@ -132,7 +132,7 @@
                                 imgElementWidth = element[0].naturalWidth;
                                 console.log(imgElementWidth);
                             }
-                        }, 100);
+                        }, 1);
                     }
 
                     // Append placeholder styles to image wrapper if attribute is present

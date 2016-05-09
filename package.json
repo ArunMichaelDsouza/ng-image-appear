@@ -33,6 +33,7 @@
   },
   "jshintConfig": {
     "devel": true,
+    "expr": true,
     "globals": {
       "angular": false
     }
