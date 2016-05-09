@@ -225,7 +225,7 @@
 
                     // Create animation sequence if attribute is present
                     if(animationDurationAttr !== undefined && animationDurationAttr !== '') {
-                        animationText = animationAttr+' '+animationDurationAttr;
+                        animationText = animationAttr+' '+animationDurationAttr+' '+easingAttr;
                     }
                 }
 
