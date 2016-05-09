@@ -1,4 +1,4 @@
-# ng-image-appear
+# ng-image-appear [![npm version](https://badge.fury.io/js/ng-image-appear.svg)](https://badge.fury.io/js/ng-image-appear) [![NPM Downloads](https://img.shields.io/npm/dm/ng-image-appear.svg?style=flat-square)](https://www.npmjs.com/package/ng-image-appear) [![Latest Stable Version](https://img.shields.io/bower/v/ng-image-appear.svg?style=flat-square)](http://bower.io/search/?q=ng-image-appear)
 AngularJS Module to make images appear with transition as they load. 
 
 ### [Demo on CodePen](http://codepen.io/amdsouza92/full/aNQeWW/)
@@ -24,7 +24,7 @@ bower install ng-image-appear
 #### via npm
 
 ```html
-npm install ng-youtube-embed
+npm install ng-image-appear
 ```
 
 Or, [download](https://github.com/ArunMichaelDsouza/ng-image-appear/releases) the latest version and include ``ng-image-appear.min.js`` to your project.
