@@ -4,9 +4,9 @@
     Licence: MIT
 */
 
-'use strict';
-
 (function() {
+    'use strict';
+    
     // Declaring ngImageAppear module
     var ngImageAppear = angular.module('ngImageAppear', []);
 
