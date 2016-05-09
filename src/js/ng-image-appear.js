@@ -116,25 +116,66 @@
                     }
                 }
 
-                // Function to create image wrapper element
-                function generateImageWrapper() {
-                    imgElement = element[0]; // Get image element
-                    parentElement = imgElement.parentNode; // Get parent of image element
+                 // Function to render loader
+                function renderLoader() {
 
-                    var imgElementWidth = element[0].offsetWidth; // Get width of image element
-                    var parentElementWidth = parentElement.offsetWidth; // Get width of parent element
+                    // Show loader in DOM
+                    function showLoader() {
+                        loaderElement = document.createElement('img'); 
 
-                    if(imgElementWidth === 0) {
-                        var interval = setInterval(function() {
-                            if(imgElementWidth !== 0) {
-                                clearInterval(interval);
-                            }
-                            else {
-                                imgElementWidth = element[0].naturalWidth;
-                                console.log(imgElementWidth);
-                            }
-                        }, 1);
+                        // Adding loader object properties to loader element
+                        for(var key in loaderObject) {
+                            loaderElement[key] = loaderObject[key]; 
+                        }
+
+                        // Add loader to DOM
+                        imgWrapper.appendChild(loaderElement);
+                        hasShownLoader = true;
                     }
+
+                    // Check custom loader image extension
+                    if(loaderImgAttr) {
+
+                        // Get filetype of image
+                        var fileType = loaderImgAttr.split('.').pop();
+                        fileType = fileType.substring(0,3);
+
+                        // Show loader if gif file is present
+                        if(fileType === 'gif') {
+                            showLoader();
+                        }
+                        // Else throw warning in console
+                        else {
+                            console.warn('The custom loader image should have a proper gif extension. Read full documentation here - https://github.com/ArunMichaelDsouza/ng-image-appear');
+                        }
+                    }
+                    else {
+                        showLoader();
+                    }
+                }
+                
+                // Function to remove loader element from DOM
+                function removeLoader() {
+
+                    // Check for loader visibility flags
+                    if(!isSmall && !noLoaderAttr && hasShownLoader) {
+                        var elementLoader = element[0].nextSibling; // Get loader of current element
+                        elementLoader.parentNode.removeChild(elementLoader); // Remove rendered loader from DOM
+                    }
+
+                    // Reset default CSS
+                    imgWrapper.style.backgroundColor = imgWrapper.style.position = imgElement.style.width = '';
+                }
+
+                // Function to remove wrapper element from DOM
+                function removeImgWrapper() {
+                    var wrapper = element[0].parentNode,
+                        wrapperParent = wrapper.parentNode;
+                        wrapperParent.replaceChild(element[0], wrapper); // Replace wrapper with actual image element
+                }
+
+                // Function to render image wrapper in DOM
+                function renderImageWrapper(imgElementWidth, parentElementWidth) {
 
                     // Append placeholder styles to image wrapper if attribute is present
                     if(placeholderStyleAttr !== undefined && placeholderStyleAttr !== '') {
@@ -173,86 +214,60 @@
                     parentElement.replaceChild(imgWrapper, imgElement); // Replace actual image element with wrapper element
                     imgWrapper.appendChild(imgElement); // Append actual image element to wrapper element
                     // This will wrap the image element into a parent div tag used for showing the loader
+
+                    // Show loader if 'no-loader' attribute is not present
+                    if(!noLoaderAttr) {
+                        var imgWrapperWidth = imgWrapper.offsetWidth;
+
+                        // Show loader if wrapper width is more than 70px
+                        imgWrapperWidth >= 70 ? renderLoader() : isSmall = true;
+                    }
+
+                    // Create animation sequence if attribute is present
+                    if(animationDurationAttr !== undefined && animationDurationAttr !== '') {
+                        animationText = animationAttr+' '+animationDurationAttr;
+                    }
                 }
 
-                // Function to render loader
-                function renderLoader() {
+                // Function to create image wrapper element
+                function generateImageWrapper() {
+                    imgElement = element[0]; // Get image element
+                    parentElement = imgElement.parentNode; // Get parent of image element
 
-                    // Show loader in DOM
-                    function showLoader() {
-                        loaderElement = document.createElement('img'); 
+                    var imgElementWidth = element[0].offsetWidth; // Get width of image element
+                    var parentElementWidth = parentElement.offsetWidth; // Get width of parent element
 
-                        // Adding loader object properties to loader element
-                        for(var key in loaderObject) {
-                            loaderElement[key] = loaderObject[key]; 
-                        }
+                    // Check if image's offset width is 0
+                    if(imgElementWidth === 0) {
 
-                        // Add loader to DOM
-                        imgWrapper.appendChild(loaderElement);
-                        hasShownLoader = true;
-                    }
+                        // Fire interval for checking image's width until it is calculated by DOM
+                        var interval = setInterval(function() {
 
-                    // Check custom loader image extension
-                    if(loaderImgAttr) {
-                        var fileType = loaderImgAttr.split('.').pop();
-                        fileType = fileType.substring(0,3);
-
-                        // Show loader if gif file is present
-                        if(fileType === 'gif') {
-                            showLoader();
-                        }
-                        // Else throw warning in console
-                        else {
-                            console.warn('The custom loader image should have a proper gif extension. Read full documentation here - https://github.com/ArunMichaelDsouza/ng-image-appear');
-                        }
+                            // If image width is set to its natural width then clear interval and render image wrapper
+                            if(imgElementWidth !== 0) {
+                                clearInterval(interval);
+                                renderImageWrapper(imgElementWidth, parentElementWidth);
+                            }
+                            // Else keep iterating through interval until the image width is set to its natural width
+                            else {
+                                imgElementWidth = element[0].naturalWidth;                                
+                            }
+                        }, 1);
                     }
                     else {
-                        showLoader();
+                        // Render image wrapper if image width is already calculated
+                        renderImageWrapper(imgElementWidth, parentElementWidth);
                     }
                 }
 
                 // Create image wrapper for loader
                 generateImageWrapper(); 
-
-                // Show loader if 'no-loader' attribute is not present
-                if(!noLoaderAttr) {
-                    var imgWrapperWidth = imgWrapper.offsetWidth;
-
-                    // Show loader if wrapper width is more than 70px
-                    imgWrapperWidth >= 70 ? renderLoader() : isSmall = true;
-                }
-
-                // Function to remove loader element from DOM
-                function removeLoader() {
-
-                    // Check for loader visibility flags
-                    if(!isSmall && !noLoaderAttr && hasShownLoader) {
-                        var elementLoader = element[0].nextSibling; // Get loader of current element
-                        elementLoader.parentNode.removeChild(elementLoader); // Remove rendered loader from DOM
-                    }
-
-                    // Reset default CSS
-                    imgWrapper.style.backgroundColor = imgWrapper.style.position = imgElement.style.width = '';
-                }
-
-                // Function to remove wrapper element from DOM
-                function removeImgWrapper() {
-                    var wrapper = element[0].parentNode,
-                    wrapperParent = wrapper.parentNode;
-                    wrapperParent.replaceChild(element[0], wrapper); // Replace wrapper with actual image element
-                }
-
-                // Create animation sequence if attribute is present
-                if(animationDurationAttr !== undefined && animationDurationAttr !== '') {
-                    animationText = animationAttr+' '+animationDurationAttr;
-                }
-
+                
                 // Detect image load event
                 element.bind('load', function() {
                     removeLoader(); // Remove loader element once image is loaded
 
-                    // Remove image wrapper from DOM
-                    removeImgWrapper();
+                    removeImgWrapper(); // Remove image wrapper from DOM
                     
                     // Make element appear with transition/animation
                     $timeout(function() {
