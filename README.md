@@ -1,5 +1,6 @@
 # ng-image-appear [![npm version](https://badge.fury.io/js/ng-image-appear.svg)](https://badge.fury.io/js/ng-image-appear) [![NPM Downloads](https://img.shields.io/npm/dm/ng-image-appear.svg?style=flat-square)](https://www.npmjs.com/package/ng-image-appear) [![Latest Stable Version](https://img.shields.io/bower/v/ng-image-appear.svg?style=flat-square)](http://bower.io/search/?q=ng-image-appear)
 AngularJS Module to make images appear with transition as they load. 
+> Wraps the ``img`` tag within a wrapper and adds a gif loader in between. No more ugly-looking progressively loading images!
 
 ### [Demo on CodePen](http://codepen.io/amdsouza92/full/aNQeWW/)
 
@@ -35,7 +36,7 @@ Add ``ngImageAppear`` as a dependency in your angular app module.
 
 Include the directive with the ``img`` tag in your HTML file with any of the available options.
 
-Include the ``src`` and include the ``ng-image-appear`` directive as an ``attribute``.
+Include the ``src`` and the ``ng-image-appear`` directive as an ``attribute``.
 
 Example - 
 ```javascript
@@ -58,6 +59,78 @@ myApp.controller('appCtrl', ['$scope', function($scope) {
 ```
 
 ## Options
+
+#### ``transition-duration``
+This parameter specifies the transition duration for the image to appear. Default value is ``700ms``.
+
+Example - 
+```html
+<img 
+	src="https://newevolutiondesigns.com/images/freebies/tropical-beach-background-8.jpg" 
+	ng-image-appear
+	transition-duration="4s"
+/> 
+```
+
+#### ``bg-color``
+Adds a background color to the image wrapper element. 
+
+Example - 
+```html
+<img 
+	src="https://newevolutiondesigns.com/images/freebies/tropical-beach-background-8.jpg" 
+	ng-image-appear
+	bg-color="#000"
+/> 
+```
+
+#### ``no-loader``
+If this option is added then no gif loader is shown in the image wrapper element.
+
+Example - 
+```html
+<img 
+	src="https://newevolutiondesigns.com/images/freebies/tropical-beach-background-8.jpg" 
+	ng-image-appear
+	no-loader
+/> 
+```
+
+#### ``placeholder``
+Adds a default placeholder in the image wrapper background.
+
+Example - 
+```html
+<img 
+	src="https://newevolutiondesigns.com/images/freebies/tropical-beach-background-8.jpg" 
+	ng-image-appear
+	placeholder
+/> 
+```
+
+You can override the default placeholder background and add your own by passing an image link to this option.
+
+Example - 
+```html
+<img 
+	src="https://newevolutiondesigns.com/images/freebies/tropical-beach-background-8.jpg" 
+	ng-image-appear
+	placeholder="http://getuikit.com/docs/images/placeholder_600x400.svg"
+/> 
+```
+
+#### ``placeholder-class``
+Use this option to add a css class to the placeholder background.
+
+Example - 
+```html
+<img 
+	src="https://newevolutiondesigns.com/images/freebies/tropical-beach-background-8.jpg" 
+	ng-image-appear
+	placeholder
+	placeholder-class="placeholder-css"
+/> 
+```
 
 ## License
 
