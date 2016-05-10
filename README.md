@@ -34,7 +34,7 @@ Add ``ngImageAppear`` as a dependency in your angular app module.
 
 ## Usage
 
-Include the directive with an ``img`` tag in your HTML file with any of the available options.
+Include the directive with an ``img`` tag in your HTML file with any of the available [options](#options).
 
 Include the ``src`` and the ``ng-image-appear`` directive as an ``attribute``.
 
