@@ -97,7 +97,7 @@ Example -
 ```
 
 #### ``responsive``
-Use this option to make the image wrapper responsive. In that case the width of the wrapper is calculated in ``%``, otherwise its calculated in ``px``.
+Use this option to make the image wrapper responsive. In that case the width of the wrapper is calculated in ``%``, otherwise it is calculated in ``px``.
 
 Example - 
 ```html
@@ -136,6 +136,12 @@ Use this option to add a CSS class to the placeholder background.
 
 Example - 
 ```html
+<style>
+	.placeholder-css {
+		background-size: contain;
+	}
+</style>
+
 <img 
 	src="https://newevolutiondesigns.com/images/freebies/tropical-beach-background-8.jpg" 
 	ng-image-appear
@@ -153,12 +159,12 @@ Example -
 	src="https://newevolutiondesigns.com/images/freebies/tropical-beach-background-8.jpg" 
 	ng-image-appear
 	placeholder
-	placeholder-styles="background-size: contain;"
+	placeholder-style="background-size: contain;"
 /> 
 ```
 
 #### ``loader-img``
-Add a custom ``gif`` loader in the image wrapper. Default ``width`` and ``height`` of the loader is ``40px``.
+Add a custom ``gif`` loader in the image wrapper. Default ``width`` and ``height`` of the loader is ``40px``. The image must be a ``gif``.
 
 Example - 
 ```html
@@ -174,6 +180,15 @@ Use this option to add a CSS class to the loader element.
 
 Example - 
 ```html
+<style>
+	.loader-css {
+		width: 60px; 
+		height: 60px; 
+		left: calc((100% - 60px) / 2); 
+		top: calc((100% - 60px) / 2);
+	}
+</style>
+
 <img 
 	src="https://newevolutiondesigns.com/images/freebies/tropical-beach-background-8.jpg" 
 	ng-image-appear
@@ -205,7 +220,7 @@ Example -
 /> 
 ```
 
-The following CSS3 animations are built-in to ng-image-appear - 
+ng-image-appear has the following built-in CSS3 animations - 
 
 ##### ``fadeIn (default)``
 
@@ -261,7 +276,7 @@ Example -
 
 #### ``easing``
 
-Specify the timing-function for the CSS3 powered transition/animation. Default value is ``ease-in-out``.
+Specifies the timing-function for the CSS3 powered transition/animation. Default value is ``ease-in-out``.
 
 Example - 
 ```html
