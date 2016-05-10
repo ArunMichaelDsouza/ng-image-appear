@@ -4,27 +4,37 @@
 	<title>ng-image-appear demo</title>
 	<meta charset="UTF-8"/>
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
 	<style>
 		body {
 			background-color: #aaa;
 		}
-		.img {
+		img {
 			width: 60%;
 			height: auto;
 		}
 	</style>
 </head>
 <body ng-controller="appCtrl">
-	<img 
-		class="img" 
-		src="https://newevolutiondesigns.com/images/freebies/tropical-beach-background-8.jpg" 
-		ng-image-appear 
-		responsive
-		transition-duration="1s"
-		animation="fillIn"
-		animation-duration="1s"
-		easing="ease-out"
-	/> 
+	<div class="container">
+		<div class="row">
+		<div class="col-md-6">
+			<img 
+				class="img" 
+				src="https://newevolutiondesigns.com/images/freebies/tropical-beach-background-8.jpg" 
+				ng-image-appear 
+				responsive
+				transition-duration="1s"
+				animation="fillIn"
+				animation-duration="1s"
+				easing="ease-out"
+			/> 
+		</div>
+		<div class="col-md-6">
+			<img src="https://newevolutiondesigns.com/images/freebies/tropical-beach-background-8.jpg"/>
+		</div>
+	</div>
+	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
 	<script src="../src/js/build/ng-image-appear.js"></script>
 	<script>

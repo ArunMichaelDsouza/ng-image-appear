@@ -3,6 +3,11 @@
     Copyright (c) 2016 Arun Michael Dsouza (amdsouza92@gmail.com)
     Licence: MIT
     Demo on CodePen - http://codepen.io/amdsouza92/full/aNQeWW/
+
+    Bugs:
+    - Adding margin to img fucks up height of parent container
+    - Adding images in bootstrap cols reduces its responsive width (95%)
+
 */
 
 (function() {
