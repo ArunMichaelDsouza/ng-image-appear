@@ -199,8 +199,9 @@
                     // Set default CSS width + unit for img element
                     if(isResponsiveAttr) {
                         // Set image element width in %
-                        setImageElementWidth = Math.round((imgElementWidth * 100) / parentElementWidth);
+                        setImageElementWidth = Math.round((imgElementWidth / parentElementWidth) * 100);
                         setImageElementWidth+= '%';
+                        console.log(setImageElementWidth);
 
                         // Set wrapper width to width of image element
                         imgWrapper.style.width = setImageElementWidth; 
@@ -277,7 +278,7 @@
                     // Make element appear with transition/animation
                     $timeout(function() {
                         element.css({
-                            'width': setImageElementWidth, // Set computed element width
+                            
                             'transition': ' all '+ transitionDurationAttr +' '+ easingAttr, // Set element transition
                             'opacity': 1, // Show image element in view
                             'animation': animationAttr ? animationText : '' // Set element animation
