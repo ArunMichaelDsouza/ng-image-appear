@@ -199,9 +199,8 @@
                     // Set default CSS width + unit for img element
                     if(isResponsiveAttr) {
                         // Set image element width in %
-                        setImageElementWidth = Math.round((imgElementWidth / parentElementWidth) * 100);
+                        setImageElementWidth = Math.round((imgElementWidth * 100) / parentElementWidth);
                         setImageElementWidth+= '%';
-                        console.log(setImageElementWidth);
 
                         // Set wrapper width to width of image element
                         imgWrapper.style.width = setImageElementWidth; 
@@ -215,7 +214,7 @@
                         imgWrapper.style.width = setImageElementWidth;
                     }
 
-                    imgElement.style.width = '100%'; // Span image element to 100% width of wrapper
+                    //imgElement.style.width = '100%'; // Span image element to 100% width of wrapper
 
                     parentElement.replaceChild(imgWrapper, imgElement); // Replace actual image element with wrapper element
                     imgWrapper.appendChild(imgElement); // Append actual image element to wrapper element
@@ -243,6 +242,9 @@
                     var imgElementWidth = element[0].offsetWidth; // Get width of image element
                     var parentElementWidth = parentElement.offsetWidth; // Get width of parent element
 
+                    console.log(parentElement.offsetWidth);
+                    console.log(element[0].offsetWidth);
+
                     // Check if image's offset width is 0
                     if(imgElementWidth === 0) {
 
@@ -252,10 +254,28 @@
                             // If image width is set to its natural width then clear interval and render image wrapper
                             if(imgElementWidth !== 0) {
                                 clearInterval(interval);
+
+                                console.log(element[0].offsetWidth);
+
+                                console.log(window.getComputedStyle(element[0]).width);
+
+                                
+                                function getElementContentWidth(element) {
+                                  var styles = window.getComputedStyle(element);
+                                  var padding = parseFloat(styles.paddingLeft) +
+                                                parseFloat(styles.paddingRight);
+
+                                  return element.clientWidth - padding;
+                                }
+
+                                console.log(getElementContentWidth(parentElement));
+
+
                                 renderImageWrapper(imgElementWidth, parentElementWidth);
                             }
                             // Else keep iterating through interval until the image width is set to its natural width
                             else {
+                                console.log(element[0].naturalWidth);
                                 imgElementWidth = element[0].naturalWidth;                                
                             }
                         }, 1);
@@ -271,19 +291,19 @@
                 
                 // Detect image load event
                 element.bind('load', function() {
-                    removeLoader(); // Remove loader element once image is loaded
+                    // removeLoader(); // Remove loader element once image is loaded
 
-                    removeImgWrapper(); // Remove image wrapper from DOM
+                    // removeImgWrapper(); // Remove image wrapper from DOM
                     
-                    // Make element appear with transition/animation
-                    $timeout(function() {
-                        element.css({
-                            
-                            'transition': ' all '+ transitionDurationAttr +' '+ easingAttr, // Set element transition
-                            'opacity': 1, // Show image element in view
-                            'animation': animationAttr ? animationText : '' // Set element animation
-                        });
-                    }, 0); // Timeout to clear stack and rebuild DOM
+                    // // Make element appear with transition/animation
+                    // $timeout(function() {
+                    //     element.css({
+                    //         // 'width': setImageElementWidth, // Set computed element width
+                    //         'transition': ' all '+ transitionDurationAttr +' '+ easingAttr, // Set element transition
+                    //         'opacity': 1, // Show image element in view
+                    //         'animation': animationAttr ? animationText : '' // Set element animation
+                    //     });
+                    // }, 0); // Timeout to clear stack and rebuild DOM
                 });
             }
         };
