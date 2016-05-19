@@ -216,6 +216,8 @@
 
                     imgWrapper.style.margin = margin; // Set wrapper element margin equal to image element margin
                     imgElement.style.width = '100%'; // Span image element to 100% width of wrapper
+                    imgElement.style.padding = 0;
+                    imgElement.style.margin = 0;
 
                     parentElement.replaceChild(imgWrapper, imgElement); // Replace actual image element with wrapper element
                     imgWrapper.appendChild(imgElement); // Append actual image element to wrapper element
