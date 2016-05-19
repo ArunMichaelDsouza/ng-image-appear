@@ -169,7 +169,7 @@
                     }
 
                     // Reset default CSS
-                    imgWrapper.style.backgroundColor = imgWrapper.style.position = imgElement.style.width = '';
+                    imgWrapper.style.backgroundColor = imgWrapper.style.position = imgElement.style.width = imgElement.style.padding = imgElement.style.margin = '';
                 }
 
                 // Function to remove wrapper element from DOM
@@ -293,19 +293,19 @@
                 
                 // Detect image load event
                 element.bind('load', function() {
-                    // removeLoader(); // Remove loader element once image is loaded
+                    removeLoader(); // Remove loader element once image is loaded
 
-                    // removeImgWrapper(); // Remove image wrapper from DOM
+                    removeImgWrapper(); // Remove image wrapper from DOM
                     
-                    // // Make element appear with transition/animation
-                    // $timeout(function() {
-                    //     element.css({
-                    //         // 'width': setImageElementWidth, // Set computed element width
-                    //         'transition': ' all '+ transitionDurationAttr +' '+ easingAttr, // Set element transition
-                    //         'opacity': 1, // Show image element in view
-                    //         'animation': animationAttr ? animationText : '' // Set element animation
-                    //     });
-                    // }, 0); // Timeout to clear stack and rebuild DOM
+                    // Make element appear with transition/animation
+                    $timeout(function() {
+                        element.css({
+                            // 'width': setImageElementWidth, // Set computed element width
+                            'transition': ' all '+ transitionDurationAttr +' '+ easingAttr, // Set element transition
+                            'opacity': 1, // Show image element in view
+                            'animation': animationAttr ? animationText : '' // Set element animation
+                        });
+                    }, 0); // Timeout to clear stack and rebuild DOM
                 });
             }
         };
