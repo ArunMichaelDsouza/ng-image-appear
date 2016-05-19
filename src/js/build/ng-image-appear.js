@@ -3,11 +3,6 @@
     Copyright (c) 2016 Arun Michael Dsouza (amdsouza92@gmail.com)
     Licence: MIT
     Demo on CodePen - http://codepen.io/amdsouza92/full/aNQeWW/
-
-    Bugs:
-    - Adding margin to img fucks up height of parent container
-    - Adding images in bootstrap cols reduces its responsive width (95%)
-
 */
 
 (function() {
@@ -121,7 +116,7 @@
                     }
                 }
 
-                 // Function to render loader
+                // Function to render loader
                 function renderLoader() {
 
                     // Show loader in DOM
@@ -132,6 +127,9 @@
                         for(var key in loaderObject) {
                             loaderElement[key] = loaderObject[key]; 
                         }
+
+                        // Set loader element's margin/padding to 0
+                        loaderElement.style.margin = loaderElement.style.padding = 0;
 
                         // Add loader to DOM
                         imgWrapper.appendChild(loaderElement);
@@ -180,7 +178,7 @@
                 }
 
                 // Function to render image wrapper in DOM
-                function renderImageWrapper(imgElementWidth, parentElementWidth, margin) {
+                function renderImageWrapper(imgElementWidth, parentElementWidth, imgElementMargin) {
 
                     // Append placeholder styles to image wrapper if attribute is present
                     if(placeholderStyleAttr !== undefined && placeholderStyleAttr !== '') {
@@ -214,10 +212,9 @@
                         imgWrapper.style.width = setImageElementWidth;
                     }
 
-                    imgWrapper.style.margin = margin; // Set wrapper element margin equal to image element margin
+                    imgWrapper.style.margin = imgElementMargin; // Set wrapper element margin equal to image element margin
                     imgElement.style.width = '100%'; // Span image element to 100% width of wrapper
-                    imgElement.style.padding = 0;
-                    imgElement.style.margin = 0;
+                    imgElement.style.padding = imgElement.style.margin = 0; // Set image element's margin/padding to 0
 
                     parentElement.replaceChild(imgWrapper, imgElement); // Replace actual image element with wrapper element
                     imgWrapper.appendChild(imgElement); // Append actual image element to wrapper element
@@ -239,53 +236,39 @@
 
                 // Function to create image wrapper element
                 function generateImageWrapper() {
-                    imgElement = element[0]; // Get image element
+                    imgElement = element[0], // Get image element
                     parentElement = imgElement.parentNode; // Get parent of image element
 
-                    var imgElementWidth = element[0].offsetWidth; // Get width of image element
-                    var parentElementWidth = parentElement.offsetWidth; // Get width of parent element
+                    // Fire interval for checking image's width/height until calculated by DOM
+                    var interval = setInterval(function() {
 
-                    // Check if image's offset width is 0
-                    //if(imgElementWidth === 0) {
-
-                        // Fire interval for checking image's width until it is calculated by DOM
-                        var interval = setInterval(function() {
-
-                            // If image width is set to its natural width then clear interval and render image wrapper
-                            if(imgElementWidth !== 0 && element[0].offsetHeight !== 0) {
-                                clearInterval(interval);
-
-                                var margin;
+                        // If image element's width and height have been calculated by DOM then clear interval
+                        if(imgElement.offsetWidth !== 0 && imgElement.offsetHeight !== 0) {
+                            clearInterval(interval);
                                 
-                                function getElementContentWidth(element) {
-                                  var styles = window.getComputedStyle(element);
-                                  var padding = parseFloat(styles.paddingLeft) +
-                                                parseFloat(styles.paddingRight);
+                            // Function to get element's content width (without horizontal padding)
+                            function getElementContentWidth(element) {
+                                var styles = window.getComputedStyle(element); // Get computed styles of element
+                                var padding = parseFloat(styles.paddingLeft) + parseFloat(styles.paddingRight); // Get horizontal padding of element
 
-                                                margin = styles.margin;
+                                return element.clientWidth - padding; // Return content width
+                            }
 
+                            // Get image element's margin and set it to wrapper element when rendered in DOM
+                            var imgElementMargin = window.getComputedStyle(imgElement).margin;
 
-                                  return element.clientWidth - padding;
-                                }
-
-
-                                parentElementWidth = getElementContentWidth(parentElement);
+                            // Set content width for parent, image elements
+                            var parentElementWidth = getElementContentWidth(parentElement),
                                 imgElementWidth = getElementContentWidth(element[0]);
 
-
-
-                                renderImageWrapper(imgElementWidth, parentElementWidth, margin);
-                            }
-                            // Else keep iterating through interval until the image width is set to its natural width
-                            else {
-                                imgElementWidth = element[0].naturalWidth;                                
-                            }
-                        }, 1);
-                    // }
-                    // else {
-                    //     // Render image wrapper if image width is already calculated
-                    //     renderImageWrapper(imgElementWidth, parentElementWidth);
-                    // }
+                            // Render image wrapper
+                            renderImageWrapper(imgElementWidth, parentElementWidth, imgElementMargin);
+                        }
+                        // Else keep iterating through interval until the image width is set to its natural width
+                        else {
+                            imgElementWidth = element[0].naturalWidth;                                
+                        }
+                    }, 1);
                 }
 
                 // Create image wrapper for loader
