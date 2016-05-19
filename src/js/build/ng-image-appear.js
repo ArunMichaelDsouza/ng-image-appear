@@ -180,7 +180,7 @@
                 }
 
                 // Function to render image wrapper in DOM
-                function renderImageWrapper(imgElementWidth, parentElementWidth) {
+                function renderImageWrapper(imgElementWidth, parentElementWidth, margin) {
 
                     // Append placeholder styles to image wrapper if attribute is present
                     if(placeholderStyleAttr !== undefined && placeholderStyleAttr !== '') {
@@ -214,7 +214,8 @@
                         imgWrapper.style.width = setImageElementWidth;
                     }
 
-                    //imgElement.style.width = '100%'; // Span image element to 100% width of wrapper
+                    imgWrapper.style.margin = margin; // Set wrapper element margin equal to image element margin
+                    imgElement.style.width = '100%'; // Span image element to 100% width of wrapper
 
                     parentElement.replaceChild(imgWrapper, imgElement); // Replace actual image element with wrapper element
                     imgWrapper.appendChild(imgElement); // Append actual image element to wrapper element
@@ -242,48 +243,47 @@
                     var imgElementWidth = element[0].offsetWidth; // Get width of image element
                     var parentElementWidth = parentElement.offsetWidth; // Get width of parent element
 
-                    console.log(parentElement.offsetWidth);
-                    console.log(element[0].offsetWidth);
-
                     // Check if image's offset width is 0
-                    if(imgElementWidth === 0) {
+                    //if(imgElementWidth === 0) {
 
                         // Fire interval for checking image's width until it is calculated by DOM
                         var interval = setInterval(function() {
 
                             // If image width is set to its natural width then clear interval and render image wrapper
-                            if(imgElementWidth !== 0) {
+                            if(imgElementWidth !== 0 && element[0].offsetHeight !== 0) {
                                 clearInterval(interval);
 
-                                console.log(element[0].offsetWidth);
-
-                                console.log(window.getComputedStyle(element[0]).width);
-
+                                var margin;
                                 
                                 function getElementContentWidth(element) {
                                   var styles = window.getComputedStyle(element);
                                   var padding = parseFloat(styles.paddingLeft) +
                                                 parseFloat(styles.paddingRight);
 
+                                                margin = styles.margin;
+
+
                                   return element.clientWidth - padding;
                                 }
 
-                                console.log(getElementContentWidth(parentElement));
+
+                                parentElementWidth = getElementContentWidth(parentElement);
+                                imgElementWidth = getElementContentWidth(element[0]);
 
 
-                                renderImageWrapper(imgElementWidth, parentElementWidth);
+
+                                renderImageWrapper(imgElementWidth, parentElementWidth, margin);
                             }
                             // Else keep iterating through interval until the image width is set to its natural width
                             else {
-                                console.log(element[0].naturalWidth);
                                 imgElementWidth = element[0].naturalWidth;                                
                             }
                         }, 1);
-                    }
-                    else {
-                        // Render image wrapper if image width is already calculated
-                        renderImageWrapper(imgElementWidth, parentElementWidth);
-                    }
+                    // }
+                    // else {
+                    //     // Render image wrapper if image width is already calculated
+                    //     renderImageWrapper(imgElementWidth, parentElementWidth);
+                    // }
                 }
 
                 // Create image wrapper for loader
