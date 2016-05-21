@@ -129,7 +129,7 @@
                         }
 
                         // Set loader element's margin/padding to 0
-                        loaderElement.style.margin = loaderElement.style.padding = 0;
+                        loaderElement.style.margin = loaderElement.style.padding =  loaderElement.style.border = loaderElement.style.borderRadius = 0;
 
                         // Add loader to DOM
                         imgWrapper.appendChild(loaderElement);
@@ -178,7 +178,7 @@
                 }
 
                 // Function to render image wrapper in DOM
-                function renderImageWrapper(imgElementWidth, parentElementWidth, imgElementMargin) {
+                function renderImageWrapper(imgElementWidth, parentElementWidth, imgElementMargin, imgElementBorderRadius, imgElementBorder) {
 
                     // Append placeholder styles to image wrapper if attribute is present
                     if(placeholderStyleAttr !== undefined && placeholderStyleAttr !== '') {
@@ -212,7 +212,10 @@
                         imgWrapper.style.width = setImageElementWidth;
                     }
 
-                    imgWrapper.style.margin = imgElementMargin; // Set wrapper element margin equal to image element margin
+                    imgWrapper.style.margin = imgElementMargin; // Set wrapper margin equal to image element's margin
+                    imgWrapper.style.borderRadius = imgElementBorderRadius; // Set wrapper border radius equal to image element's border radius
+                    imgWrapper.style.border = imgElementBorder; // Set wrapper border equal to image element's border
+
                     imgElement.style.width = '100%'; // Span image element to 100% width of wrapper
                     imgElement.style.padding = imgElement.style.margin = 0; // Set image element's margin/padding to 0
 
@@ -255,14 +258,16 @@
                             }
 
                             // Get image element's margin and set it to wrapper element when rendered in DOM
-                            var imgElementMargin = window.getComputedStyle(imgElement).margin;
+                            var imgElementMargin = window.getComputedStyle(imgElement).margin,
+                                imgElementBorderRadius = window.getComputedStyle(imgElement).borderRadius,
+                                imgElementBorder = window.getComputedStyle(imgElement).border;
 
                             // Set content width for parent, image elements
                             var parentElementWidth = getElementContentWidth(parentElement),
                                 imgElementWidth = getElementContentWidth(element[0]);
 
                             // Render image wrapper
-                            renderImageWrapper(imgElementWidth, parentElementWidth, imgElementMargin);
+                            renderImageWrapper(imgElementWidth, parentElementWidth, imgElementMargin, imgElementBorderRadius, imgElementBorder);
                         }
                         // Else keep iterating through interval until the image width is set to its natural width
                         else {
