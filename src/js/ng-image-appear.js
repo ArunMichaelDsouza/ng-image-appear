@@ -237,6 +237,14 @@
                     }
                 }
 
+                // Function to get element's content width (without horizontal padding)
+                function getElementContentWidth(element) {
+                    var styles = window.getComputedStyle(element), // Get computed styles of element
+                        padding = parseFloat(styles.paddingLeft) + parseFloat(styles.paddingRight); // Get horizontal padding of element
+
+                    return element.clientWidth - padding; // Return content width
+                }
+
                 // Function to create image wrapper element
                 function generateImageWrapper() {
                     imgElement = element[0], // Get image element
@@ -248,14 +256,6 @@
                         // If image element's width and height have been calculated by DOM then clear interval
                         if(imgElement.offsetWidth !== 0 && imgElement.offsetHeight !== 0) {
                             clearInterval(interval);
-                                
-                            // Function to get element's content width (without horizontal padding)
-                            function getElementContentWidth(element) {
-                                var styles = window.getComputedStyle(element); // Get computed styles of element
-                                var padding = parseFloat(styles.paddingLeft) + parseFloat(styles.paddingRight); // Get horizontal padding of element
-
-                                return element.clientWidth - padding; // Return content width
-                            }
 
                             // Get image element's margin and set it to wrapper element when rendered in DOM
                             var imgElementMargin = window.getComputedStyle(imgElement).margin,
@@ -268,10 +268,6 @@
 
                             // Render image wrapper
                             renderImageWrapper(imgElementWidth, parentElementWidth, imgElementMargin, imgElementBorderRadius, imgElementBorder);
-                        }
-                        // Else keep iterating through interval until the image width is set to its natural width
-                        else {
-                            imgElementWidth = element[0].naturalWidth;                                
                         }
                     }, 1);
                 }
