@@ -167,13 +167,14 @@
                         var elementLoader = element[0].nextSibling; // Get loader of current element
                         elementLoader.parentNode.removeChild(elementLoader); // Remove rendered loader from DOM
                     }
-
-                    // Reset img wrapper CSS
-                    imgWrapper.style.backgroundColor = imgWrapper.style.position = imgElement.style.width = imgElement.style.padding = imgElement.style.margin = imgElement.style.border = imgElement.style.borderRadius = imgElement.style.boxShadow = imgElement.style.display = imgElement.style.float = imgElement.style.transform = imgElement.style.outline = '';
                 }
 
                 // Function to remove wrapper element from DOM
                 function removeImgWrapper() {
+                    
+                    // Reset img wrapper CSS
+                    imgWrapper.style.backgroundColor = imgWrapper.style.position = imgElement.style.width = imgElement.style.padding = imgElement.style.margin = imgElement.style.border = imgElement.style.borderRadius = imgElement.style.boxShadow = imgElement.style.display = imgElement.style.float = imgElement.style.transform = imgElement.style.outline = '';
+
                     var wrapper = element[0].parentNode,
                         wrapperParent = wrapper.parentNode;
                     wrapperParent.replaceChild(element[0], wrapper); // Replace wrapper with actual image element
@@ -262,7 +263,6 @@
 
                             // Get image element's visual styles and set it to wrapper element when rendered in DOM
                             var imgElementStyles = {
-                                padding: window.getComputedStyle(imgElement).padding, 
                                 margin: window.getComputedStyle(imgElement).margin,
                                 borderRadius: window.getComputedStyle(imgElement).borderRadius,
                                 border: window.getComputedStyle(imgElement).border,
