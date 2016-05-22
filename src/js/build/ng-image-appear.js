@@ -128,8 +128,10 @@
                             loaderElement[key] = loaderObject[key]; 
                         }
 
-                        // Set loader element's margin/padding to 0
+                        // Set loader element's visual styles to null
                         loaderElement.style.margin = loaderElement.style.padding =  loaderElement.style.border = loaderElement.style.borderRadius = 0;
+                        loaderElement.style.boxShadow = loaderElement.style.float = 'none'; 
+                        loaderElement.style.display = loaderElement.style.transform = loaderElement.style.outline = '';
 
                         // Add loader to DOM
                         imgWrapper.appendChild(loaderElement);
@@ -167,18 +169,18 @@
                     }
 
                     // Reset default CSS
-                    imgWrapper.style.backgroundColor = imgWrapper.style.position = imgElement.style.width = imgElement.style.padding = imgElement.style.margin = '';
+                    imgWrapper.style.backgroundColor = imgWrapper.style.position = imgElement.style.width = imgElement.style.padding = imgElement.style.margin = imgElement.style.border = imgElement.style.borderRadius = imgElement.style.boxShadow = imgElement.style.display = imgElement.style.float = imgElement.style.transform = imgElement.style.outline = '';
                 }
 
                 // Function to remove wrapper element from DOM
                 function removeImgWrapper() {
                     var wrapper = element[0].parentNode,
                         wrapperParent = wrapper.parentNode;
-                        wrapperParent.replaceChild(element[0], wrapper); // Replace wrapper with actual image element
+                    wrapperParent.replaceChild(element[0], wrapper); // Replace wrapper with actual image element
                 }
 
                 // Function to render image wrapper in DOM
-                function renderImageWrapper(imgElementWidth, parentElementWidth, imgElementMargin, imgElementBorderRadius, imgElementBorder) {
+                function renderImageWrapper(imgElementWidth, parentElementWidth, imgElementStyles) {
 
                     // Append placeholder styles to image wrapper if attribute is present
                     if(placeholderStyleAttr !== undefined && placeholderStyleAttr !== '') {
@@ -212,9 +214,10 @@
                         imgWrapper.style.width = setImageElementWidth;
                     }
 
-                    imgWrapper.style.margin = imgElementMargin; // Set wrapper margin equal to image element's margin
-                    imgWrapper.style.borderRadius = imgElementBorderRadius; // Set wrapper border radius equal to image element's border radius
-                    imgWrapper.style.border = imgElementBorder; // Set wrapper border equal to image element's border
+                    // Add image element styles to wrapper element
+                    for(var property in imgElementStyles) {
+                        imgWrapper.style[property] = imgElementStyles[property];
+                    }
 
                     imgElement.style.width = '100%'; // Span image element to 100% width of wrapper
                     imgElement.style.padding = imgElement.style.margin = 0; // Set image element's margin/padding to 0
@@ -257,17 +260,25 @@
                         if(imgElement.offsetWidth !== 0 && imgElement.offsetHeight !== 0) {
                             clearInterval(interval);
 
-                            // Get image element's margin and set it to wrapper element when rendered in DOM
-                            var imgElementMargin = window.getComputedStyle(imgElement).margin,
-                                imgElementBorderRadius = window.getComputedStyle(imgElement).borderRadius,
-                                imgElementBorder = window.getComputedStyle(imgElement).border;
+                            // Get image element's visual styles and set it to wrapper element when rendered in DOM
+                            var imgElementStyles = {
+                                padding: window.getComputedStyle(imgElement).padding, 
+                                margin: window.getComputedStyle(imgElement).margin,
+                                borderRadius: window.getComputedStyle(imgElement).borderRadius,
+                                border: window.getComputedStyle(imgElement).border,
+                                boxShadow: window.getComputedStyle(imgElement).boxShadow,
+                                float: window.getComputedStyle(imgElement).float,
+                                display: window.getComputedStyle(imgElement).display,
+                                transform: window.getComputedStyle(imgElement).transform,
+                                outline: window.getComputedStyle(imgElement).outline
+                            };
 
                             // Set content width for parent, image elements
                             var parentElementWidth = getElementContentWidth(parentElement),
                                 imgElementWidth = getElementContentWidth(element[0]);
 
                             // Render image wrapper
-                            renderImageWrapper(imgElementWidth, parentElementWidth, imgElementMargin, imgElementBorderRadius, imgElementBorder);
+                            renderImageWrapper(imgElementWidth, parentElementWidth, imgElementStyles);
                         }
                     }, 1);
                 }
