@@ -171,7 +171,7 @@
 
                 // Function to remove wrapper element from DOM
                 function removeImgWrapper() {
-                    
+
                     // Reset img wrapper CSS
                     imgWrapper.style.backgroundColor = imgWrapper.style.position = imgElement.style.width = imgElement.style.padding = imgElement.style.margin = imgElement.style.border = imgElement.style.borderRadius = imgElement.style.boxShadow = imgElement.style.display = imgElement.style.float = imgElement.style.transform = imgElement.style.outline = '';
 
@@ -242,11 +242,17 @@
                 }
 
                 // Function to get element's content width (without horizontal padding)
-                function getElementContentWidth(element) {
+                function getElementContentWidth(element, type) {
                     var styles = window.getComputedStyle(element), // Get computed styles of element
-                        padding = parseFloat(styles.paddingLeft) + parseFloat(styles.paddingRight); // Get horizontal padding of element
+                         padding = parseFloat(styles.paddingLeft) + parseFloat(styles.paddingRight); // Get horizontal padding of element
 
-                    return element.clientWidth - padding; // Return content width
+                    // Return content width
+                    if(type === 'wrapper') {
+                        return element.offsetWidth - padding;
+                    }
+                    else {
+                        return element.offsetWidth;
+                    }
                 }
 
                 // Function to create image wrapper element
@@ -258,11 +264,12 @@
                     var interval = setInterval(function() {
 
                         // If image element's width and height have been calculated by DOM then clear interval
-                        if(imgElement.offsetWidth !== 0 && imgElement.offsetHeight !== 0) {
+                        if(imgElement.offsetWidth !== 0 && imgElement.clientHeight !== 0) {
                             clearInterval(interval);
 
                             // Get image element's visual styles and set it to wrapper element when rendered in DOM
                             var imgElementStyles = {
+                                padding: window.getComputedStyle(imgElement).padding,
                                 margin: window.getComputedStyle(imgElement).margin,
                                 borderRadius: window.getComputedStyle(imgElement).borderRadius,
                                 border: window.getComputedStyle(imgElement).border,
@@ -274,8 +281,8 @@
                             };
 
                             // Set content width for parent, image elements
-                            var parentElementWidth = getElementContentWidth(parentElement),
-                                imgElementWidth = getElementContentWidth(element[0]);
+                            var parentElementWidth = getElementContentWidth(parentElement, 'wrapper'),
+                                imgElementWidth = getElementContentWidth(element[0], 'image');
 
                             // Render image wrapper
                             renderImageWrapper(imgElementWidth, parentElementWidth, imgElementStyles);
