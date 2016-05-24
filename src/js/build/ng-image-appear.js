@@ -172,12 +172,17 @@
                 // Function to remove wrapper element from DOM
                 function removeImgWrapper() {
 
-                    // Reset img wrapper CSS
-                    imgWrapper.style.backgroundColor = imgWrapper.style.position = imgElement.style.width = imgElement.style.padding = imgElement.style.margin = imgElement.style.border = imgElement.style.borderRadius = imgElement.style.boxShadow = imgElement.style.float = imgElement.style.transform = imgElement.style.outline = '';
+                    var intervalRemove = setInterval(function() {
+                        if(imgWrapper !== undefined || imgWrapper !== '') {
+                            clearInterval(intervalRemove);
+                            // Reset img wrapper CSS
+                            imgWrapper.style.backgroundColor = imgWrapper.style.position = imgElement.style.width = imgElement.style.padding = imgElement.style.margin = imgElement.style.border = imgElement.style.borderRadius = imgElement.style.boxShadow = imgElement.style.float = imgElement.style.transform = imgElement.style.outline = '';
 
-                    var wrapper = element[0].parentNode,
-                        wrapperParent = wrapper.parentNode;
-                    wrapperParent.replaceChild(element[0], wrapper); // Replace wrapper with actual image element
+                            var wrapper = element[0].parentNode,
+                                wrapperParent = wrapper.parentNode;
+                            wrapperParent.replaceChild(element[0], wrapper); // Replace wrapper with actual image element
+                        }
+                    }, 1);
                 }
 
                 // Function to render image wrapper in DOM
