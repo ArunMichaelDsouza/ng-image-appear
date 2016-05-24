@@ -131,7 +131,7 @@
                         // Set loader element's visual styles to null
                         loaderElement.style.margin = loaderElement.style.padding =  loaderElement.style.border = loaderElement.style.borderRadius = 0;
                         loaderElement.style.boxShadow = loaderElement.style.float = 'none'; 
-                        loaderElement.style.display = loaderElement.style.transform = loaderElement.style.outline = '';
+                        loaderElement.style.transform = loaderElement.style.outline = '';
 
                         // Add loader to DOM
                         imgWrapper.appendChild(loaderElement);
@@ -173,7 +173,7 @@
                 function removeImgWrapper() {
 
                     // Reset img wrapper CSS
-                    imgWrapper.style.backgroundColor = imgWrapper.style.position = imgElement.style.width = imgElement.style.padding = imgElement.style.margin = imgElement.style.border = imgElement.style.borderRadius = imgElement.style.boxShadow = imgElement.style.display = imgElement.style.float = imgElement.style.transform = imgElement.style.outline = '';
+                    imgWrapper.style.backgroundColor = imgWrapper.style.position = imgElement.style.width = imgElement.style.padding = imgElement.style.margin = imgElement.style.border = imgElement.style.borderRadius = imgElement.style.boxShadow = imgElement.style.float = imgElement.style.transform = imgElement.style.outline = '';
 
                     var wrapper = element[0].parentNode,
                         wrapperParent = wrapper.parentNode;
@@ -275,7 +275,6 @@
                                 border: window.getComputedStyle(imgElement).border,
                                 boxShadow: window.getComputedStyle(imgElement).boxShadow,
                                 float: window.getComputedStyle(imgElement).float,
-                                display: window.getComputedStyle(imgElement).display,
                                 transform: window.getComputedStyle(imgElement).transform,
                                 outline: window.getComputedStyle(imgElement).outline
                             };

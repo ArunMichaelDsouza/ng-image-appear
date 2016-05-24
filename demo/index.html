@@ -4,38 +4,42 @@
 	<title>ng-image-appear demo</title>
 	<meta charset="UTF-8"/>
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
 	<style>
 		body {
-			background-color: #aaa;
+			background-color: #dedede;
 		}
 		img {
-			/*width: 60%;*/
+			width: 50%;
 			height: auto;
 			margin-top: 60px;
-			border-radius: 10px;
+			/*border-radius: 10px;*/
 			/*padding: 20px;*/
-			border: 2px solid #999;
+			/*border: 2px solid #999;*/
+		}
+		.shadow {
+			box-shadow: 1px 1px 1px rgba(0,0,0,.15);
 		}
 	</style>
 </head>
 <body ng-controller="appCtrl">
 	<div class="container">
-		<div class="row">
+		<div class="row" style="text-align: center;">
+		<div class="col-md-3">
+			<!-- <img class="img-responsive" src="https://newevolutiondesigns.com/images/freebies/tropical-beach-background-8.jpg"/> -->
+		</div>
 		<div class="col-md-6">
 			<img 
-				class="img-responsive" 
+				class="img-responsive shadow" 
 				src="https://newevolutiondesigns.com/images/freebies/tropical-beach-background-8.jpg" 
 				ng-image-appear 
 				responsive
 				transition-duration="1s"
-				animation="fillIn"
-				animation-duration="1s"
-				easing="ease-out"
 			/> 
 		</div>
-		<div class="col-md-6">
-			<img class="img-responsive" src="https://newevolutiondesigns.com/images/freebies/tropical-beach-background-8.jpg"/>
+		<div class="col-md-3">
+			<!-- <img class="img-responsive" src="https://newevolutiondesigns.com/images/freebies/tropical-beach-background-8.jpg"/> -->
 		</div>
 	</div>
 	</div>

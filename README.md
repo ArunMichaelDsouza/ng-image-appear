@@ -80,7 +80,7 @@ Example -
 <img 
 	src="https://newevolutiondesigns.com/images/freebies/tropical-beach-background-8.jpg" 
 	ng-image-appear
-	bg-color="#000"
+	bg-color="#50a4e2"
 /> 
 ```
 
@@ -171,7 +171,7 @@ Example -
 <img 
 	src="https://newevolutiondesigns.com/images/freebies/tropical-beach-background-8.jpg" 
 	ng-image-appear
-	loader-img="http://www.arabianbusiness.com/skins/ab.main/gfx/loading_spinner.gif"
+	loader-img="https://cache.dominos.com/nolo/ca/en/010048/assets/build/images/img/spinner.gif"
 /> 
 ```
 
