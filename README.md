@@ -4,6 +4,10 @@ AngularJS Module to make images appear with transition as they load.
 
 ### [Demo on CodePen](http://codepen.io/amdsouza92/full/aNQeWW/)
 
+![ng-image-appear](https://raw.githubusercontent.com/ArunMichaelDsouza/ng-image-appear/master/demo/images/intro.gif)
+
+<br/>
+
 ## Installation
 
 #### CDN 
@@ -32,6 +36,8 @@ Or, [download](https://github.com/ArunMichaelDsouza/ng-image-appear/releases) th
 
 Add ``ngImageAppear`` as a dependency in your angular app module.
 
+<br/>
+
 ## Usage
 
 Include the directive with an ``img`` tag in your HTML file with any of the available [options](#options).
@@ -58,6 +64,8 @@ myApp.controller('appCtrl', ['$scope', function($scope) {
 /> 
 ```
 
+<br/>
+
 ## Options
 
 #### ``transition-duration``
@@ -72,6 +80,8 @@ Example -
 /> 
 ```
 
+<br/>
+
 #### ``bg-color``
 Adds a background color to the image wrapper element. 
 
@@ -83,6 +93,10 @@ Example -
 	bg-color="#50a4e2"
 /> 
 ```
+
+![bg-color](https://raw.githubusercontent.com/ArunMichaelDsouza/ng-image-appear/master/demo/images/bg-color.gif)
+
+<br/>
 
 #### ``no-loader``
 If this option is specified, then no gif loader is shown in the image wrapper element.
@@ -96,6 +110,10 @@ Example -
 /> 
 ```
 
+![no-loader](https://raw.githubusercontent.com/ArunMichaelDsouza/ng-image-appear/master/demo/images/no-loader.gif)
+
+<br/>
+
 #### ``responsive``
 Use this option to make the image wrapper responsive. In that case the width of the wrapper is calculated in ``%``, otherwise it is calculated in ``px``.
 
@@ -107,6 +125,10 @@ Example -
 	responsive
 /> 
 ```
+
+![responsive](https://raw.githubusercontent.com/ArunMichaelDsouza/ng-image-appear/master/demo/images/responsive.gif)
+
+<br/>
 
 #### ``placeholder``
 Adds a default placeholder in the image wrapper background.
@@ -120,6 +142,8 @@ Example -
 /> 
 ```
 
+![placeholder](https://raw.githubusercontent.com/ArunMichaelDsouza/ng-image-appear/master/demo/images/placeholder.gif)
+
 You can override the default placeholder background and add your own by passing an image link to this option.
 
 Example - 
@@ -130,6 +154,10 @@ Example -
 	placeholder="http://getuikit.com/docs/images/placeholder_600x400.svg"
 /> 
 ```
+
+![placeholder-custom](https://github.com/ArunMichaelDsouza/ng-image-appear/raw/master/demo/images/placeholder-custom.gif)
+
+<br/>
 
 #### ``placeholder-class``
 Use this option to add a CSS class to the placeholder background.
@@ -150,6 +178,8 @@ Example -
 /> 
 ```
 
+<br/>
+
 #### ``placeholder-style``
 Add CSS styles to the placeholder background using this option.
 
@@ -163,6 +193,8 @@ Example -
 /> 
 ```
 
+<br/>
+
 #### ``loader-img``
 Add a custom ``gif`` loader in the image wrapper. Default ``width`` and ``height`` of the loader is ``40px``. The image must be a ``gif``.
 
@@ -174,6 +206,10 @@ Example -
 	loader-img="https://cache.dominos.com/nolo/ca/en/010048/assets/build/images/img/spinner.gif"
 /> 
 ```
+
+![loader-img](https://raw.githubusercontent.com/ArunMichaelDsouza/ng-image-appear/master/demo/images/loader-img.gif)
+
+<br/>
 
 #### ``loader-class``
 Use this option to add a CSS class to the loader element.
@@ -196,6 +232,8 @@ Example -
 /> 
 ```
 
+<br/>
+
 #### ``loader-style``
 Add CSS styles to the loader element using this option.
 
@@ -208,6 +246,8 @@ Example -
 /> 
 ```
 
+<br/>
+
 #### ``animation``
 Add a CSS3 powered animation to the image as it appears. Default animation is ``fadeIn``.
 
@@ -219,6 +259,8 @@ Example -
 	animation="fillIn"
 /> 
 ```
+
+![animation](https://raw.githubusercontent.com/ArunMichaelDsouza/ng-image-appear/master/demo/images/animation.gif)
 
 ng-image-appear has the following built-in CSS3 animations - 
 
@@ -260,6 +302,8 @@ ng-image-appear has the following built-in CSS3 animations -
 
 ##### ``fillIn``
 
+<br/>
+
 #### ``animation-duration``
 
 This parameter specifies the animation duration for the image to appear. Default value is ``700ms``.
@@ -274,6 +318,8 @@ Example -
 /> 
 ```
 
+<br/>
+
 #### ``easing``
 
 Specifies the timing-function for the CSS3 powered transition/animation. Default value is ``ease-in-out``.
@@ -287,6 +333,8 @@ Example -
 	easing="ease-out"
 /> 
 ```
+
+<br/>
 
 ## License
 
