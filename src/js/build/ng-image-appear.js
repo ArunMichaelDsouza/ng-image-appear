@@ -172,9 +172,11 @@
                 // Function to remove wrapper element from DOM
                 function removeImgWrapper() {
 
+                    // Interval to check that image wrapper has been rendered in DOM
                     var intervalRemove = setInterval(function() {
                         if(imgWrapper !== undefined || imgWrapper !== '') {
                             clearInterval(intervalRemove);
+                                
                             // Reset img wrapper CSS
                             imgWrapper.style.backgroundColor = imgWrapper.style.position = imgElement.style.width = imgElement.style.padding = imgElement.style.margin = imgElement.style.border = imgElement.style.borderRadius = imgElement.style.boxShadow = imgElement.style.float = imgElement.style.transform = imgElement.style.outline = '';
 
@@ -306,12 +308,11 @@
                     // Make element appear with transition/animation
                     $timeout(function() {
                         element.css({
-                            // 'width': setImageElementWidth, // Set computed element width
                             'transition': ' all '+ transitionDurationAttr +' '+ easingAttr, // Set element transition
                             'opacity': 1, // Show image element in view
                             'animation': animationAttr ? animationText : '' // Set element animation
                         });
-                    }, 0); // Timeout to clear stack and rebuild DOM
+                    }, 100); // Timeout to clear stack and rebuild DOM
                 });
             }
         };
