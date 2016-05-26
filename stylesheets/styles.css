@@ -598,6 +598,7 @@ code {
 }
 
 pre {
+  color: #9a9a9a;
   padding: 8px 15px;
   background: #333333;
   -moz-border-radius: 3px;
@@ -970,7 +971,28 @@ footer {
   }
 
   #banner {
+    /*display: none;*/
+    top: 0;
+    position: relative;
+  }
+
+  #banner .fork {
+    position: relative;
+  }
+
+  .downloads > span {
     display: none;
+  }
+
+  .header-wrapper {
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    top: 0;
+  }
+
+  div.wrapper {
+    margin-top: 100px;
   }
 
   header ul {
