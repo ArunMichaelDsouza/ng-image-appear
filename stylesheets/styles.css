@@ -1008,3 +1008,14 @@ footer {
     width: auto;
   }
 }
+
+/* Custom styles */
+@media screen and (max-width: 700px) {
+  .version-badge {
+    display: block;
+  }
+
+  .npm-badge { 
+    margin-top: 10px;
+  }
+}
