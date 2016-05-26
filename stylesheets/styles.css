@@ -643,7 +643,7 @@ hr {
   outline: none;
   height: 11px;
   background: transparent url("../images/hr.gif") center center repeat-x;
-  margin: 0 0 20px;
+  margin: 20px 0;
 }
 
 dt {

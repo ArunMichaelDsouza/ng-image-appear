@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html ng-app="myApp" id="ng-app">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
@@ -23,7 +23,7 @@
 
     </script>
   </head>
-  <body>
+  <body ng-controller="appCtrl">
 
     <div class="header-wrapper">
       <header>
@@ -66,8 +66,24 @@
 </blockquote>
 
 <h3>
-<a id="demo-on-codepen" class="anchor" href="#demo-on-codepen" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="http://codepen.io/amdsouza92/full/aNQeWW/">Demo on CodePen</a>
+<a id="demo-on-codepen" class="anchor" href="#demo-on-codepen" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a target="_blank" href="http://codepen.io/amdsouza92/full/aNQeWW/">Demo on CodePen</a>
 </h3>
+
+<hr/>
+
+<img 
+    src="https://newevolutiondesigns.com/images/freebies/tropical-beach-background-8.jpg" 
+    ng-image-appear 
+    responsive
+    transition-duration="1s"
+    animation="fillIn"
+    animation-duration="1s"
+    easing="ease-out"
+/> 
+
+<hr/>
+
+<br/>
 
 <p><img src="https://raw.githubusercontent.com/ArunMichaelDsouza/ng-image-appear/master/demo/images/intro.gif" alt="ng-image-appear"></p>
 
@@ -475,10 +491,19 @@
       </section>
       <footer>
         <p>Project maintained by <a href="https://github.com/ArunMichaelDsouza">ArunMichaelDsouza</a></p>
-        <p><small>Hosted on GitHub Pages</p>
+        <p><small>Hosted on GitHub Pages</small></p>
       </footer>
     </div>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/angular.image-appear/1.8.3/ng-image-appear.min.js"></script>
+    <script>
+      var myApp = angular.module('myApp', ['ngImageAppear']);
+
+      myApp.controller('appCtrl', ['$scope', function($scope) {
+
+      }]);
+    </script>
   </body>
 </html>
