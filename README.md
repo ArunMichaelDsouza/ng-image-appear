@@ -17,7 +17,7 @@ AngularJS Module to make images appear with transition as they load.
 Use ng-image-appear directly from jsdelivr CDN
 
 ```html
-https://cdn.jsdelivr.net/angular.image-appear/1.8.3/ng-image-appear.min.js
+https://cdn.jsdelivr.net/angular.image-appear/1.8.4/ng-image-appear.min.js
 ```
 
 #### via bower
