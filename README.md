@@ -2,6 +2,8 @@
 AngularJS Module to make images appear with transition as they load. 
 > Wraps the ``img`` tag within a wrapper and adds a gif loader in between. No more ugly-looking progressively loading images!
 
+[http://arunmichaeldsouza.github.io/ng-image-appear/](http://arunmichaeldsouza.github.io/ng-image-appear/)
+
 ### [Demo on CodePen](http://codepen.io/amdsouza92/full/aNQeWW/)
 
 ![ng-image-appear](https://raw.githubusercontent.com/ArunMichaelDsouza/ng-image-appear/master/demo/images/intro.gif)
