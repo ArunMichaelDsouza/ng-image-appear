@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="myApp" id="ng-app">
+<head>
+	<title>ng-image-appear placeholder demo</title>
+	<meta charset="UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		body {
+			background-color: #dedede;
+			text-align: center;
+		}
+		img {
+			width: 50%;
+			height: auto;
+			margin-top: 40px;
+			box-shadow: 1px 1px 1px rgba(0,0,0,.15);
+		}
+	</style>
+</head>
+<body ng-controller="appCtrl">
+	<img 
+		src="https://newevolutiondesigns.com/images/freebies/tropical-beach-background-8.jpg" 
+		ng-image-appear 
+		placeholder
+	/> 
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/angular.image-appear/1.8.4/ng-image-appear.min.js"></script>
+	<script>
+		var myApp = angular.module('myApp', ['ngImageAppear']);
+		myApp.controller('appCtrl', ['$scope', function($scope) {
+			
+		}]);
+	</script>
+</body>
+</html>

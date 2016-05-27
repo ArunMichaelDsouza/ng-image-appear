@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="myApp" id="ng-app">
+<head>
+	<title>ng-image-appear placeholder demo</title>
+	<meta charset="UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<style>
+		body {
+			background-color: #dedede;
+			text-align: center;
+		}
+		img {
+			margin-top: 40px;
+			box-shadow: 1px 1px 1px rgba(0,0,0,.15);
+		}
+	</style>
+</head>
+<body ng-controller="appCtrl">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-3" ng-repeat="url in images">
+				<img 
+					ng-src="{{url}}" 
+					class="img-responsive" 
+					ng-image-appear 
+					animaton="bounceIn"
+					animation-duration="1s"
+				/>
+			</div>
+		</div>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/angular.image-appear/1.8.4/ng-image-appear.min.js"></script>
+	<script>
+		var myApp = angular.module('myApp', ['ngImageAppear']);
+		myApp.controller('appCtrl', ['$scope', function($scope) {
+			$scope.images = [
+				'http://www.planwallpaper.com/static/images/wallpapers-hd-8000-8331-hd-wallpapers.jpg',
+				'http://www.onlyhdpic.com/images/Collections/hd-pics-photos-bottle-sea-view.jpg',
+				'https://newevolutiondesigns.com/images/freebies/hd-widescreen-wallpaper-3.jpg',
+				'http://www.intrawallpaper.com/static/images/Full-Hd-Wallpapers-1080p-23_GyUrik2.jpg'
+			];
+		}]);
+	</script>
+</body>
+</html>
