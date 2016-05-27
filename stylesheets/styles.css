@@ -1032,6 +1032,20 @@ footer {
 }
 
 /* Custom styles */
+.github-ribbon {
+  position: fixed; 
+  z-index: 1000; 
+  top: 0; 
+  right: 0; 
+  border: 0;
+}
+
+@media screen and (max-width: 720px) {
+  .github-ribbon {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 700px) {
   .version-badge {
     display: block;
@@ -1041,3 +1055,4 @@ footer {
     margin-top: 10px;
   }
 }
+
