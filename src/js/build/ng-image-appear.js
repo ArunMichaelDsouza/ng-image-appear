@@ -298,13 +298,13 @@
 
                 // Create image wrapper for loader
                 generateImageWrapper(); 
-                
-                // Detect image load event
-                element.bind('load', function() {
+
+                // Function to load image into DOM
+                function loadImage() {
                     removeLoader(); // Remove loader element once image is loaded
 
                     removeImgWrapper(); // Remove image wrapper from DOM
-                    
+                        
                     // Make element appear with transition/animation
                     $timeout(function() {
                         element.css({
@@ -313,7 +313,18 @@
                             'animation': animationAttr ? animationText : '' // Set element animation
                         });
                     }, 100); // Timeout to clear stack and rebuild DOM
-                });
+                }
+
+                // Check if image element has already been completely downloaded (via cache)
+                if(element[0].complete) {
+                    loadImage();
+                }
+                else {
+                    // Else detect image load event
+                    element.bind('load', function() {
+                        loadImage();
+                    });
+                }
             }
         };
     }]);
