@@ -174,7 +174,7 @@
 
                     // Interval to check that image wrapper has been rendered in DOM
                     var intervalRemove = setInterval(function() {
-                        if(imgWrapper !== undefined || imgWrapper !== '') {
+                        if(imgWrapper !== undefined) {
                             clearInterval(intervalRemove);
                                 
                             // Reset img wrapper CSS
