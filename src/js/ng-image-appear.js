@@ -42,12 +42,6 @@
         return {
             restrict: 'A',
             link: function(scope, element, attrs) {
-
-                // Hide image element from view 
-                element.css({
-                    'opacity': 0
-                });
-
                 // Set default CSS classes for elements
                 var defaultLoaderClass = 'ngImageAppearLoader',
                     defaultPlaceholderClass = 'ngImageAppearPlaceholder';
@@ -165,7 +159,9 @@
                     // Check for loader visibility flags
                     if(!isSmall && !noLoaderAttr && hasShownLoader) {
                         var elementLoader = element[0].nextSibling; // Get loader of current element
-                        elementLoader.parentNode.removeChild(elementLoader); // Remove rendered loader from DOM
+                        if(elementLoader) {
+                          elementLoader.parentNode.removeChild(elementLoader); // Remove rendered loader from DOM
+                        }
                     }
                 }
 
@@ -296,9 +292,6 @@
                     }, 1);
                 }
 
-                // Create image wrapper for loader
-                generateImageWrapper(); 
-
                 // Function to load image into DOM
                 function loadImage() {
                     removeLoader(); // Remove loader element once image is loaded
@@ -315,16 +308,47 @@
                     }, 100); // Timeout to clear stack and rebuild DOM
                 }
 
-                // Check if image element has already been completely downloaded (via cache)
-                if(element[0].complete) {
+                function onImageLoad() {
                     loadImage();
+                    element.unbind('load');
                 }
-                else {
-                    // Else detect image load event
-                    element.bind('load', function() {
-                        loadImage();
+
+                function initialize() {
+                    // Hide image element from view
+                    element.css({
+                        'opacity': 0
                     });
+
+                    // Create image wrapper for loader
+                    generateImageWrapper();
+
+                    // Check if image element has already been completely downloaded (via cache)
+                    if(element[0].complete) {
+                        loadImage();
+                    }
+                    else {
+                        // Else detect image load event
+                        element.bind('load', onImageLoad);
+                    }
                 }
+
+                function reInitialize() {
+                    initialize();
+                }
+
+                function getImageSrc() {
+                    return element[0].getAttribute('src');
+                }
+
+                var currentSrc = attrs.src;
+
+                scope.$watch(getImageSrc, function(newSrcValue) {
+                    if(newSrcValue && newSrcValue != currentSrc) {
+                        reInitialize();
+                    }
+                });
+
+                initialize();
             }
         };
     }]);
