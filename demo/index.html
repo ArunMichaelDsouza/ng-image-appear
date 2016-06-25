@@ -5,10 +5,10 @@
 	<meta charset="UTF-8"/>
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
 	<style>
 		body {
 			background-color: #dedede;
+			text-align: center;
 		}
 		img {
 			width: 50%;
@@ -24,28 +24,17 @@
 	</style>
 </head>
 <body ng-controller="appCtrl">
-	<div class="container">
-		<div class="row" style="text-align: center;">
-		<div class="col-md-3">
-			<!-- <img class="img-responsive" src="https://newevolutiondesigns.com/images/freebies/tropical-beach-background-8.jpg"/> -->
-		</div>
-		<div class="col-md-6">
-			<img 
-				class="img-responsive shadow" 
-				src="https://newevolutiondesigns.com/images/freebies/tropical-beach-background-8.jpg" 
-				ng-image-appear 
-				responsive
-				transition-duration="1s"
-				animation="fadeInUp"
-				animation-duration="1s"
-				easing="ease-out"
-			/> 
-		</div>
-		<div class="col-md-3">
-			<!-- <img class="img-responsive" src="https://newevolutiondesigns.com/images/freebies/tropical-beach-background-8.jpg"/> -->
-		</div>
-	</div>
-	</div>
+	<img 
+		class="img-responsive shadow" 
+		src="img.png" 
+		ng-image-appear 
+		responsive
+		transition-duration="1s"
+		animation="fadeInUp"
+		animation-duration="1s"
+		easing="ease-out"
+		onerror="style.opacity = 0;" 
+	/> 
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
 	<script src="../src/js/build/ng-image-appear.js"></script>
 	<script>
