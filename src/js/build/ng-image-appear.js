@@ -42,6 +42,7 @@
         return {
             restrict: 'A',
             link: function(scope, element, attrs) {
+
                 // Set default CSS classes for elements
                 var defaultLoaderClass = 'ngImageAppearLoader',
                     defaultPlaceholderClass = 'ngImageAppearPlaceholder';
@@ -308,12 +309,15 @@
                     }, 100); // Timeout to clear stack and rebuild DOM
                 }
 
+                // Function to initiate actual image load
                 function onImageLoad() {
                     loadImage();
                     element.unbind('load');
                 }
 
+                // Function to initialise directive
                 function initialize() {
+
                     // Hide image element from view
                     element.css({
                         'opacity': 0
@@ -322,8 +326,8 @@
                     // Create image wrapper for loader
                     generateImageWrapper();
 
-                    // Check if image element has already been completely downloaded (via cache)
-                    if(element[0].complete) {
+                    // Check if image element has already been completely downloaded
+                    if(false) {
                         loadImage();
                     }
                     else {
@@ -332,22 +336,22 @@
                     }
                 }
 
-                function reInitialize() {
-                    initialize();
-                }
-
+                // Function to get image element's source
                 function getImageSrc() {
                     return element[0].getAttribute('src');
                 }
 
-                var currentSrc = attrs.src;
+                // Attach a watcher to image element's source
+                scope.$watch(getImageSrc, function(newSrcValue, oldSrcValue) {
 
-                scope.$watch(getImageSrc, function(newSrcValue) {
-                    if(newSrcValue && newSrcValue != currentSrc) {
-                        reInitialize();
+                    // Check if the image element's source has actually changed
+                    if(newSrcValue && newSrcValue != oldSrcValue) {
+                        initialize(); // Re-initialise directive
                     }
+                    
                 });
 
+                // Initialise directive
                 initialize();
             }
         };
