@@ -345,7 +345,7 @@
                 scope.$watch(getImageSrc, function(newSrcValue, oldSrcValue) {
 
                     // Check if the image element's source has actually changed
-                    if(newSrcValue && newSrcValue != oldSrcValue) {
+                    if(newSrcValue && newSrcValue !== oldSrcValue) {
                         initialize(); // Re-initialise directive
                     }
                     
