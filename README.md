@@ -258,7 +258,7 @@ Example -
 <img 
 	src="https://newevolutiondesigns.com/images/freebies/tropical-beach-background-8.jpg" 
 	ng-image-appear
-	animation="fillIn"
+	animation="bounceIn"
 /> 
 ```
 
