@@ -1,4 +1,4 @@
-# ng-image-appear [![npm version](https://badge.fury.io/js/ng-image-appear.svg)](https://badge.fury.io/js/ng-image-appear) [![NPM Downloads](https://img.shields.io/npm/dm/ng-image-appear.svg?style=flat-square)](https://www.npmjs.com/package/ng-image-appear) [![Latest Stable Version](https://img.shields.io/bower/v/ng-image-appear.svg?style=flat-square)](http://bower.io/search/?q=ng-image-appear)
+# ng-image-appear [![npm version](https://badge.fury.io/js/ng-image-appear.svg)](https://badge.fury.io/js/ng-image-appear) [![NPM Downloads](https://img.shields.io/npm/dm/ng-image-appear.svg?style=flat-square)](https://www.npmjs.com/package/ng-image-appear) [![Latest Stable Version](https://img.shields.io/bower/v/ng-image-appear.svg?style=flat-square)](http://bower.io/search/?q=ng-image-appear) [![](https://data.jsdelivr.com/v1/package/npm/ng-image-appear/badge)](https://www.jsdelivr.com/package/npm/ng-image-appear)
 AngularJS Module to make images appear with transition as they load. 
 > Wraps the ``img`` tag within a wrapper and adds a gif loader in between. No more ugly-looking progressively loading images!
 
@@ -17,7 +17,7 @@ AngularJS Module to make images appear with transition as they load.
 Use ng-image-appear directly from jsdelivr CDN
 
 ```html
-https://cdn.jsdelivr.net/npm/ng-image-appear@1.11.4/dist/ng-image-appear.min.js
+https://cdn.jsdelivr.net/npm/ng-image-appear@1.11.5/dist/ng-image-appear.min.js
 ```
 
 #### via bower
