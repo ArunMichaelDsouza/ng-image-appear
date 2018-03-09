@@ -327,7 +327,7 @@
                     generateImageWrapper();
 
                     // Check if image element has already been completely downloaded
-                    if(element[0].complete) {
+                    if(element[0].complete && element[0].naturalWidth > 0) {
                         loadImage();
                     }
                     else {
