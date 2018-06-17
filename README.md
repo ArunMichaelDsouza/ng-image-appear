@@ -21,7 +21,7 @@ This project has also been ported to ReactJS - [react-image-appear](https://gith
 Use ng-image-appear directly from jsdelivr CDN
 
 ```html
-https://cdn.jsdelivr.net/npm/ng-image-appear@1.11.7/dist/ng-image-appear.min.js
+https://cdn.jsdelivr.net/npm/ng-image-appear@1.11.8/dist/ng-image-appear.min.js
 ```
 
 #### via bower
@@ -343,8 +343,7 @@ Example -
 <br/>
 
 ## Contributors
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore -->
+
 | [<img src="https://avatars3.githubusercontent.com/u/4924614" width="100px;"/><br /><sub><b>Arun Michael Dsouza</b></sub>](https://github.com/ArunMichaelDsouza)<br />| [<img src="https://avatars3.githubusercontent.com/u/606978" width="100px;"/><br /><sub><b>Travis Vignon</b></sub>](https://github.com/lookitsatravis)<br />| [<img src="https://avatars0.githubusercontent.com/u/15611832" width="100px;"/><br /><sub><b>Lukas Drgon</b></sub>](https://github.com/LukasDrgon)<br /> |
 | :---: | :---: | :---: |
 
