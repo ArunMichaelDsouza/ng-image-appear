@@ -1,5 +1,5 @@
 /*
-    ng-image-appear v1.11.10
+    ng-image-appear v1.11.11
     Copyright (c) 2016 Arun Michael Dsouza (amdsouza92@gmail.com)
     Licence: MIT
     Demo on CodePen - http://codepen.io/amdsouza92/full/aNQeWW/
