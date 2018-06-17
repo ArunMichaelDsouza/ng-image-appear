@@ -342,6 +342,13 @@ Example -
 
 <br/>
 
+## Contributors
+
+| [<img src="https://avatars3.githubusercontent.com/u/4924614" width="100px;"/><br /><sub><strong>Arun Michael Dsouza</strong></sub>](https://github.com/ArunMichaelDsouza)| [<img src="https://avatars3.githubusercontent.com/u/606978" width="100px;"/><br /><sub><strong>Travis Vignon</strong></sub>](https://github.com/lookitsatravis) | [<img src="https://avatars0.githubusercontent.com/u/15611832" width="100px;"/><br /><sub><strong>Lukas Drgon</strong></sub>](https://github.com/LukasDrgon)<br />|
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+
+<br/>
+
 ## License
 
 MIT Licensed
