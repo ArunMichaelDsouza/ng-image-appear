@@ -21,7 +21,7 @@ This project has also been ported to ReactJS - [react-image-appear](https://gith
 Use ng-image-appear directly from jsdelivr CDN
 
 ```html
-https://cdn.jsdelivr.net/npm/ng-image-appear@1.11.6/dist/ng-image-appear.min.js
+https://cdn.jsdelivr.net/npm/ng-image-appear@1.11.7/dist/ng-image-appear.min.js
 ```
 
 #### via bower
