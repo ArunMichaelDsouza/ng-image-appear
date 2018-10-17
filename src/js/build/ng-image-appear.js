@@ -99,6 +99,10 @@
                     hasShownLoader = false,
                     animationText;
 
+                // IntervalIds for watching elements
+                var removeImgWrapperInterval,
+                    generateImageWrapperInterval;
+
                 // Add placeholder image if attribute is present
                 if (placeholderAttr !== undefined) {
                     if (placeholderAttr === '') {
@@ -170,9 +174,9 @@
                 function removeImgWrapper() {
 
                     // Interval to check that image wrapper has been rendered in DOM
-                    var intervalRemove = setInterval(function () {
+                    removeImgWrapperInterval = setInterval(function () {
                         if (imgWrapper !== undefined) {
-                            clearInterval(intervalRemove);
+                            clearInterval(removeImgWrapperInterval);
 
                             // Reset img wrapper CSS
                             imgWrapper.style.backgroundColor = imgWrapper.style.position = imgElement.style.width = imgElement.style.padding = imgElement.style.margin = imgElement.style.border = imgElement.style.borderRadius = imgElement.style.boxShadow = imgElement.style.float = imgElement.style.transform = imgElement.style.outline = '';
@@ -265,11 +269,11 @@
                         parentElement = imgElement.parentNode; // Get parent of image element
 
                     // Fire interval for checking image's width/height until calculated by DOM
-                    var interval = setInterval(function () {
+                    generateImageWrapperInterval = setInterval(function () {
 
                         // If image element's width and height have been calculated by DOM then clear interval
                         if (imgElement.offsetWidth !== 0 && imgElement.clientHeight !== 0) {
-                            clearInterval(interval);
+                            clearInterval(generateImageWrapperInterval);
 
                             // Get image element's visual styles and set it to wrapper element when rendered in DOM
                             var imgElementStyles = {
@@ -336,6 +340,17 @@
                     }
                 }
 
+                // Function to unbind event handlers and set intervals
+                function releaseBindings() {
+                    element.unbind('load');
+                    if(removeImgWrapperInterval) {
+                        removeImgWrapperInterval = clearInterval(removeImgWrapperInterval);
+                    }
+                    if(generateImageWrapperInterval) {
+                        generateImageWrapperInterval = clearInterval(generateImageWrapperInterval);
+                    }
+                }
+
                 // Function to get image element's source
                 function getImageSrc() {
                     return element[0].getAttribute('src');
@@ -346,6 +361,7 @@
 
                     // Check if the image element's source has actually changed
                     if (newSrcValue && newSrcValue !== oldSrcValue) {
+                        releaseBindings();
                         initialize(); // Re-initialise directive
                     }
 
