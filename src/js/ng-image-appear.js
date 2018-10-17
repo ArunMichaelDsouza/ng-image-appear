@@ -367,6 +367,20 @@
 
                 });
 
+                // Function to check if element is contained in dom
+                function elementIsInDom() {
+                    return !document.body.contains(element[0]);
+                }
+
+                // Attach a watcher to element's presence in DOM
+                scope.$watch(elementIsInDom, function(newElementExistsValue, oldElementExistsValue){
+                    if(newElementExistsValue && !oldElementExistsValue) {
+                        releaseBindings();
+                    } else if(!newElementExistsValue && oldElementExistsValue) {
+                        initialize();
+                    }
+                });
+
                 // Initialise directive
                 initialize();
             }
