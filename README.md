@@ -1,6 +1,7 @@
 <img src="https://github.com/ArunMichaelDsouza/ng-image-appear/raw/master/icon.png" width="250" height="auto" alt="ng-image-appear icon"/>
 
-# ng-image-appear [![npm version](https://badge.fury.io/js/ng-image-appear.svg)](https://badge.fury.io/js/ng-image-appear) [![NPM Downloads](https://img.shields.io/npm/dm/ng-image-appear.svg?style=flat-square)](https://www.npmjs.com/package/ng-image-appear) [![Latest Stable Version](https://img.shields.io/bower/v/ng-image-appear.svg?style=flat-square)](http://bower.io/search/?q=ng-image-appear) [![](https://data.jsdelivr.com/v1/package/npm/ng-image-appear/badge)](https://www.jsdelivr.com/package/npm/ng-image-appear)
+# ng-image-appear [![npm version](https://badge.fury.io/js/ng-image-appear.svg)](https://badge.fury.io/js/ng-image-appear) [![NPM Downloads](https://img.shields.io/npm/dm/ng-image-appear.svg?style=flat-square)](https://www.npmjs.com/package/ng-image-appear) [![Latest Stable Version](https://img.shields.io/bower/v/ng-image-appear.svg?style=flat-square)](http://bower.io/search/?q=ng-image-appear) [![](https://data.jsdelivr.com/v1/package/npm/ng-image-appear/badge)](https://www.jsdelivr.com/package/npm/ng-image-appear) <span class="badge-patreon"><a href="https://www.patreon.com/arunmichaeldsouza" title="Donate to this project using Patreon"><img src="https://img.shields.io/badge/patreon-donate-blue.svg" alt="Patreon donate button" /></a></span>
+
 AngularJS Module to make images appear with transition as they load. 
 > Wraps the ``img`` tag within a wrapper and adds a gif loader in between. No more ugly-looking progressively loading images!
 
@@ -346,6 +347,14 @@ Example -
 
 | [<img src="https://avatars3.githubusercontent.com/u/4924614" width="100px;"/><br /><sub><b>Arun Michael Dsouza</b></sub>](https://github.com/ArunMichaelDsouza)<br />| [<img src="https://avatars3.githubusercontent.com/u/606978" width="100px;"/><br /><sub><b>Travis Vignon</b></sub>](https://github.com/lookitsatravis)<br />| [<img src="https://avatars0.githubusercontent.com/u/15611832" width="100px;"/><br /><sub><b>Lukas Drgon</b></sub>](https://github.com/LukasDrgon)<br /> |
 | :---: | :---: | :---: |
+
+<br/>
+
+## Support
+
+If you'd like to help support the development of the project, please consider backing me on Patreon -
+
+[<img src="https://arunmichaeldsouza.com/img/patreon.png" width="180px;"/>](https://www.patreon.com/bePatron?u=8841116)
 
 <br/>
 
