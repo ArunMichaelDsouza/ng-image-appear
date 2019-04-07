@@ -1,145 +1,175 @@
 <!doctype html>
 <html ng-app="myApp" id="ng-app">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>ng-image-appear by ArunMichaelDsouza</title>
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/github-dark.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/main.js"></script>
-    <!--[if lt IE 9]>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <title>ng-image-appear by ArunMichaelDsouza</title>
+  <link rel="stylesheet" href="stylesheets/styles.css">
+  <link rel="stylesheet" href="stylesheets/github-dark.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="javascripts/main.js"></script>
+  <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-      ga('create', 'UA-78387406-1', 'auto');
-      ga('send', 'pageview');
+    ga('create', 'UA-78387406-1', 'auto');
+    ga('send', 'pageview');
 
-    </script>
-  </head>
-  <body ng-controller="appCtrl">
+  </script>
+</head>
 
-    <a href="https://github.com/ArunMichaelDsouza/ng-image-appear">
-      <img class="github-ribbon" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
-    </a>
+<body ng-controller="appCtrl">
 
-    <div class="header-wrapper">
-      <header>
-        <h1>ng-image-appear</h1>
-        <p>AngularJS Module to make images appear with transition as they load. </p>
-      </header>
+  <a href="https://github.com/ArunMichaelDsouza/ng-image-appear">
+    <img class="github-ribbon"
+      src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67"
+      alt="Fork me on GitHub"
+      data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+  </a>
 
-      <div id="banner">
-        <span id="logo"></span>
+  <div class="header-wrapper">
+    <header>
+      <h1>ng-image-appear</h1>
+      <p>AngularJS Module to make images appear with transition as they load. </p>
+    </header>
 
-        <a href="https://github.com/ArunMichaelDsouza/ng-image-appear" class="button fork"><strong>View On GitHub</strong></a>
-        <div class="downloads">
-          <span>Downloads:</span>
-          <ul>
-            <li><a href="https://github.com/ArunMichaelDsouza/ng-image-appear/zipball/master" class="button">ZIP</a></li>
-            <li><a href="https://github.com/ArunMichaelDsouza/ng-image-appear/tarball/master" class="button">TAR</a></li>
-          </ul>
-        </div>
-      </div><!-- end banner -->
-    </div>
+    <div id="banner">
+      <span id="logo"></span>
 
-    <div class="wrapper">
-      <nav>
-        <ul></ul>
-      </nav>
-      <section>
-        <h1>
-<a id="ng-image-appear---" class="anchor" href="#ng-image-appear---" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ng-image-appear 
+      <a href="https://github.com/ArunMichaelDsouza/ng-image-appear" class="button fork"><strong>View On
+          GitHub</strong></a>
+      <div class="downloads">
+        <span>Downloads:</span>
+        <ul>
+          <li><a href="https://github.com/ArunMichaelDsouza/ng-image-appear/zipball/master" class="button">ZIP</a></li>
+          <li><a href="https://github.com/ArunMichaelDsouza/ng-image-appear/tarball/master" class="button">TAR</a></li>
+        </ul>
+      </div>
+    </div><!-- end banner -->
+  </div>
 
-<div style="margin-top: 10px;">
-<a class="version-badge npm-badge" href="https://badge.fury.io/js/ng-image-appear">
-  <img src="https://badge.fury.io/js/ng-image-appear.svg" alt="npm version"></a> 
-  <a class="version-badge" href="https://www.npmjs.com/package/ng-image-appear">
-  <img src="https://img.shields.io/npm/dm/ng-image-appear.svg?style=flat-square" alt="NPM Downloads"></a> 
-  <a class="version-badge" href="http://bower.io/search/?q=ng-image-appear"><img src="https://img.shields.io/bower/v/ng-image-appear.svg?style=flat-square" alt="Latest Stable Version"></a> <a href="https://www.jsdelivr.com/package/npm/ng-image-appear"><img src="https://camo.githubusercontent.com/f7224b7809b312bdb8c326bf089fafcdff43c4bc/68747470733a2f2f646174612e6a7364656c6976722e636f6d2f76312f7061636b6167652f6e706d2f6e672d696d6167652d6170706561722f6261646765" alt="" data-canonical-src="https://data.jsdelivr.com/v1/package/npm/ng-image-appear/badge" style="max-width:100%;"></a></div>
-</h1>
+  <div class="wrapper">
+    <nav>
+      <ul></ul>
+    </nav>
+    <section>
+      <h1>
+        <a id="ng-image-appear---" class="anchor" href="#ng-image-appear---" aria-hidden="true"><span aria-hidden="true"
+            class="octicon octicon-link"></span></a>ng-image-appear
 
-<p>AngularJS Module to make images appear with transition as they load. </p>
+        <div style="margin-top: 10px;">
+          <a class="version-badge npm-badge" href="https://badge.fury.io/js/ng-image-appear">
+            <img src="https://badge.fury.io/js/ng-image-appear.svg" alt="npm version"></a>
+          <a class="version-badge" href="https://www.npmjs.com/package/ng-image-appear">
+            <img src="https://img.shields.io/npm/dm/ng-image-appear.svg?style=flat-square" alt="NPM Downloads"></a>
+          <a class="version-badge" href="http://bower.io/search/?q=ng-image-appear"><img
+              src="https://img.shields.io/bower/v/ng-image-appear.svg?style=flat-square"
+              alt="Latest Stable Version"></a> <a href="https://www.jsdelivr.com/package/npm/ng-image-appear"><img
+              src="https://camo.githubusercontent.com/f7224b7809b312bdb8c326bf089fafcdff43c4bc/68747470733a2f2f646174612e6a7364656c6976722e636f6d2f76312f7061636b6167652f6e706d2f6e672d696d6167652d6170706561722f6261646765"
+              alt="" data-canonical-src="https://data.jsdelivr.com/v1/package/npm/ng-image-appear/badge"
+              style="max-width:100%;"></a></div>
+        <span class="badge-patreon"><a href="https://www.patreon.com/arunmichaeldsouza"
+            title="Donate to this project using Patreon"><img src="https://img.shields.io/badge/patreon-donate-blue.svg"
+              alt="Patreon donate button"></a></span>
+      </h1>
 
-<blockquote>
-<p>Wraps the <code>img</code> tag within a wrapper and adds a gif loader in between. No more ugly-looking progressively loading images!</p>
-</blockquote>
+      <p>AngularJS Module to make images appear with transition as they load. </p>
 
-<h3>
-<a id="demo-on-codepen" class="anchor" href="#demo-on-codepen" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a target="_blank" href="http://codepen.io/amdsouza92/full/aNQeWW/">Demo on CodePen</a>
-</h3>
+      <blockquote>
+        <p>Wraps the <code>img</code> tag within a wrapper and adds a gif loader in between. No more ugly-looking
+          progressively loading images!</p>
+      </blockquote>
 
-<hr/>
+      <h3>
+        <a id="demo-on-codepen" class="anchor" href="#demo-on-codepen" aria-hidden="true"><span aria-hidden="true"
+            class="octicon octicon-link"></span></a><a target="_blank"
+          href="http://codepen.io/amdsouza92/full/aNQeWW/">Demo on CodePen</a>
+      </h3>
 
-<img 
-    src="https://newevolutiondesigns.com/images/freebies/tropical-beach-background-8.jpg" 
-    ng-image-appear 
-    responsive
-    transition-duration="1s"
-    animation="fillIn"
-    animation-duration="1s"
-    easing="ease-out"
-/> 
+      <hr />
 
-<hr/>
+      <img src="https://newevolutiondesigns.com/images/freebies/tropical-beach-background-8.jpg" ng-image-appear
+        responsive transition-duration="1s" animation="fillIn" animation-duration="1s" easing="ease-out" />
 
-<br/>
+      <hr />
 
-<p><img src="https://raw.githubusercontent.com/ArunMichaelDsouza/ng-image-appear/master/demo/images/intro.gif" alt="ng-image-appear"></p>
+      <br />
 
-<p><br></p>
+      <p><img src="https://raw.githubusercontent.com/ArunMichaelDsouza/ng-image-appear/master/demo/images/intro.gif"
+          alt="ng-image-appear"></p>
 
-<h2>
-<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
+      <p><br></p>
 
-<h4>
-<a id="cdn" class="anchor" href="#cdn" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>CDN</h4>
+      <h2>
+        <a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true"
+            class="octicon octicon-link"></span></a>Installation</h2>
 
-<p>Use ng-image-appear directly from jsdelivr CDN</p>
+      <h4>
+        <a id="cdn" class="anchor" href="#cdn" aria-hidden="true"><span aria-hidden="true"
+            class="octicon octicon-link"></span></a>CDN</h4>
 
-<div class="highlight highlight-text-html-basic"><pre>https://cdn.jsdelivr.net/npm/ng-image-appear@1.11.6/dist/ng-image-appear.min.js
-</pre></div>
+      <p>Use ng-image-appear directly from jsdelivr CDN</p>
 
-<h4>
-<a id="via-bower" class="anchor" href="#via-bower" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>via bower</h4>
+      <div class="highlight highlight-text-html-basic">
+        <pre>https://cdn.jsdelivr.net/npm/ng-image-appear@1.11.12/dist/ng-image-appear.min.js
+</pre>
+      </div>
 
-<p>You can install the package using bower. Make sure you have bower installed, then run : </p>
+      <h4>
+        <a id="via-bower" class="anchor" href="#via-bower" aria-hidden="true"><span aria-hidden="true"
+            class="octicon octicon-link"></span></a>via bower</h4>
 
-<div class="highlight highlight-text-html-basic"><pre>bower install ng-image-appear</pre></div>
+      <p>You can install the package using bower. Make sure you have bower installed, then run : </p>
 
-<h4>
-<a id="via-npm" class="anchor" href="#via-npm" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>via npm</h4>
+      <div class="highlight highlight-text-html-basic">
+        <pre>bower install ng-image-appear</pre>
+      </div>
 
-<div class="highlight highlight-text-html-basic"><pre>npm install ng-image-appear</pre></div>
+      <h4>
+        <a id="via-npm" class="anchor" href="#via-npm" aria-hidden="true"><span aria-hidden="true"
+            class="octicon octicon-link"></span></a>via npm</h4>
 
-<p>Or, <a href="https://github.com/ArunMichaelDsouza/ng-image-appear/releases">download</a> the latest version and include <code>ng-image-appear.min.js</code> to your project.</p>
+      <div class="highlight highlight-text-html-basic">
+        <pre>npm install ng-image-appear</pre>
+      </div>
 
-<p>Add <code>ngImageAppear</code> as a dependency in your angular app module.</p>
+      <p>Or, <a href="https://github.com/ArunMichaelDsouza/ng-image-appear/releases">download</a> the latest version and
+        include <code>ng-image-appear.min.js</code> to your project.</p>
 
-<p><br></p>
+      <p>Add <code>ngImageAppear</code> as a dependency in your angular app module.</p>
 
-<h2>
-<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
+      <p><br></p>
 
-<p>Include the directive with an <code>img</code> tag in your HTML file with any of the available <a href="#options">options</a>.</p>
+      <h2>
+        <a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true"
+            class="octicon octicon-link"></span></a>Usage</h2>
 
-<p>Include the <code>src</code> and the <code>ng-image-appear</code> directive as an <code>attribute</code>.</p>
+      <p>Include the directive with an <code>img</code> tag in your HTML file with any of the available <a
+          href="#options">options</a>.</p>
 
-<p>Example - </p>
+      <p>Include the <code>src</code> and the <code>ng-image-appear</code> directive as an <code>attribute</code>.</p>
 
-<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> myApp <span class="pl-k">=</span> <span class="pl-smi">angular</span>.<span class="pl-en">module</span>(<span class="pl-s"><span class="pl-pds">'</span>myApp<span class="pl-pds">'</span></span>, [<span class="pl-s"><span class="pl-pds">'</span>ngImageAppear<span class="pl-pds">'</span></span>]);
+      <p>Example - </p>
+
+      <div class="highlight highlight-source-js">
+        <pre><span class="pl-k">var</span> myApp <span class="pl-k">=</span> <span class="pl-smi">angular</span>.<span class="pl-en">module</span>(<span class="pl-s"><span class="pl-pds">'</span>myApp<span class="pl-pds">'</span></span>, [<span class="pl-s"><span class="pl-pds">'</span>ngImageAppear<span class="pl-pds">'</span></span>]);
 
 <span class="pl-smi">myApp</span>.<span class="pl-en">controller</span>(<span class="pl-s"><span class="pl-pds">'</span>appCtrl<span class="pl-pds">'</span></span>, [<span class="pl-s"><span class="pl-pds">'</span>$scope<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">$scope</span>) {
 
-}]);</pre></div>
+}]);</pre>
+      </div>
 
-<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">img</span> 
+      <div class="highlight highlight-text-html-basic">
+        <pre>&lt;<span class="pl-ent">img</span> 
     <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>https://newevolutiondesigns.com/images/freebies/tropical-beach-background-8.jpg<span class="pl-pds">"</span></span> 
     <span class="pl-e">ng-image-appear</span> 
     <span class="pl-e">responsive</span>
@@ -147,122 +177,153 @@
     <span class="pl-e">animation</span>=<span class="pl-s"><span class="pl-pds">"</span>fillIn<span class="pl-pds">"</span></span>
     <span class="pl-e">animation-duration</span>=<span class="pl-s"><span class="pl-pds">"</span>1s<span class="pl-pds">"</span></span>
     <span class="pl-e">easing</span>=<span class="pl-s"><span class="pl-pds">"</span>ease-out<span class="pl-pds">"</span></span>
-/&gt; </pre></div>
+/&gt; </pre>
+      </div>
 
-<p><br></p>
+      <p><br></p>
 
-<h2>
-<a id="options" class="anchor" href="#options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Options</h2>
+      <h2>
+        <a id="options" class="anchor" href="#options" aria-hidden="true"><span aria-hidden="true"
+            class="octicon octicon-link"></span></a>Options</h2>
 
-<h4>
-<a id="transition-duration" class="anchor" href="#transition-duration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>transition-duration</code>
-</h4>
+      <h4>
+        <a id="transition-duration" class="anchor" href="#transition-duration" aria-hidden="true"><span
+            aria-hidden="true" class="octicon octicon-link"></span></a><code>transition-duration</code>
+      </h4>
 
-<p>This parameter specifies the transition duration for the image to appear. Default value is <code>700ms</code>.</p>
+      <p>This parameter specifies the transition duration for the image to appear. Default value is <code>700ms</code>.
+      </p>
 
-<p>Example - </p>
+      <p>Example - </p>
 
-<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">img</span> 
+      <div class="highlight highlight-text-html-basic">
+        <pre>&lt;<span class="pl-ent">img</span> 
     <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>https://newevolutiondesigns.com/images/freebies/tropical-beach-background-8.jpg<span class="pl-pds">"</span></span> 
     <span class="pl-e">ng-image-appear</span>
     <span class="pl-e">transition-duration</span>=<span class="pl-s"><span class="pl-pds">"</span>4s<span class="pl-pds">"</span></span>
-/&gt; </pre></div>
+/&gt; </pre>
+      </div>
 
-<p><br></p>
+      <p><br></p>
 
-<h4>
-<a id="bg-color" class="anchor" href="#bg-color" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>bg-color</code>
-</h4>
+      <h4>
+        <a id="bg-color" class="anchor" href="#bg-color" aria-hidden="true"><span aria-hidden="true"
+            class="octicon octicon-link"></span></a><code>bg-color</code>
+      </h4>
 
-<p>Adds a background color to the image wrapper element. </p>
+      <p>Adds a background color to the image wrapper element. </p>
 
-<p>Example - </p>
+      <p>Example - </p>
 
-<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">img</span> 
+      <div class="highlight highlight-text-html-basic">
+        <pre>&lt;<span class="pl-ent">img</span> 
     <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>https://newevolutiondesigns.com/images/freebies/tropical-beach-background-8.jpg<span class="pl-pds">"</span></span> 
     <span class="pl-e">ng-image-appear</span>
     <span class="pl-e">bg-color</span>=<span class="pl-s"><span class="pl-pds">"</span>#50a4e2<span class="pl-pds">"</span></span>
-/&gt; </pre></div>
+/&gt; </pre>
+      </div>
 
-<p><img src="https://raw.githubusercontent.com/ArunMichaelDsouza/ng-image-appear/master/demo/images/bg-color.gif" alt="bg-color"></p>
+      <p><img src="https://raw.githubusercontent.com/ArunMichaelDsouza/ng-image-appear/master/demo/images/bg-color.gif"
+          alt="bg-color"></p>
 
-<p><br></p>
+      <p><br></p>
 
-<h4>
-<a id="no-loader" class="anchor" href="#no-loader" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>no-loader</code>
-</h4>
+      <h4>
+        <a id="no-loader" class="anchor" href="#no-loader" aria-hidden="true"><span aria-hidden="true"
+            class="octicon octicon-link"></span></a><code>no-loader</code>
+      </h4>
 
-<p>If this option is specified, then no gif loader is shown in the image wrapper element.</p>
+      <p>If this option is specified, then no gif loader is shown in the image wrapper element.</p>
 
-<p>Example - </p>
+      <p>Example - </p>
 
-<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">img</span> 
+      <div class="highlight highlight-text-html-basic">
+        <pre>&lt;<span class="pl-ent">img</span> 
     <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>https://newevolutiondesigns.com/images/freebies/tropical-beach-background-8.jpg<span class="pl-pds">"</span></span> 
     <span class="pl-e">ng-image-appear</span>
     <span class="pl-e">no-loader</span>
-/&gt; </pre></div>
+/&gt; </pre>
+      </div>
 
-<p><img src="https://raw.githubusercontent.com/ArunMichaelDsouza/ng-image-appear/master/demo/images/no-loader.gif" alt="no-loader"></p>
+      <p><img src="https://raw.githubusercontent.com/ArunMichaelDsouza/ng-image-appear/master/demo/images/no-loader.gif"
+          alt="no-loader"></p>
 
-<p><br></p>
+      <p><br></p>
 
-<h4>
-<a id="responsive" class="anchor" href="#responsive" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>responsive</code>
-</h4>
+      <h4>
+        <a id="responsive" class="anchor" href="#responsive" aria-hidden="true"><span aria-hidden="true"
+            class="octicon octicon-link"></span></a><code>responsive</code>
+      </h4>
 
-<p>Use this option to make the image wrapper responsive. In that case the width of the wrapper is calculated in <code>%</code>, otherwise it is calculated in <code>px</code>.</p>
+      <p>Use this option to make the image wrapper responsive. In that case the width of the wrapper is calculated in
+        <code>%</code>, otherwise it is calculated in <code>px</code>.</p>
 
-<p>Example - </p>
+      <p>Example - </p>
 
-<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">img</span> 
+      <div class="highlight highlight-text-html-basic">
+        <pre>&lt;<span class="pl-ent">img</span> 
     <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>https://newevolutiondesigns.com/images/freebies/tropical-beach-background-8.jpg<span class="pl-pds">"</span></span> 
     <span class="pl-e">ng-image-appear</span>
     <span class="pl-e">responsive</span>
-/&gt; </pre></div>
+/&gt; </pre>
+      </div>
 
-<p><img src="https://raw.githubusercontent.com/ArunMichaelDsouza/ng-image-appear/master/demo/images/responsive.gif" alt="responsive"></p>
+      <p><img
+          src="https://raw.githubusercontent.com/ArunMichaelDsouza/ng-image-appear/master/demo/images/responsive.gif"
+          alt="responsive"></p>
 
-<p><br></p>
+      <p><br></p>
 
-<h4>
-<a id="placeholder" class="anchor" href="#placeholder" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>placeholder</code>
-</h4>
+      <h4>
+        <a id="placeholder" class="anchor" href="#placeholder" aria-hidden="true"><span aria-hidden="true"
+            class="octicon octicon-link"></span></a><code>placeholder</code>
+      </h4>
 
-<p>Adds a default placeholder in the image wrapper background.</p>
+      <p>Adds a default placeholder in the image wrapper background.</p>
 
-<p>Example - </p>
+      <p>Example - </p>
 
-<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">img</span> 
+      <div class="highlight highlight-text-html-basic">
+        <pre>&lt;<span class="pl-ent">img</span> 
     <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>https://newevolutiondesigns.com/images/freebies/tropical-beach-background-8.jpg<span class="pl-pds">"</span></span> 
     <span class="pl-e">ng-image-appear</span>
     <span class="pl-e">placeholder</span>
-/&gt; </pre></div>
+/&gt; </pre>
+      </div>
 
-<p><img src="https://raw.githubusercontent.com/ArunMichaelDsouza/ng-image-appear/master/demo/images/placeholder.gif" alt="placeholder"></p>
+      <p><img
+          src="https://raw.githubusercontent.com/ArunMichaelDsouza/ng-image-appear/master/demo/images/placeholder.gif"
+          alt="placeholder"></p>
 
-<p>You can override the default placeholder background and add your own by passing an image link to this option.</p>
+      <p>You can override the default placeholder background and add your own by passing an image link to this option.
+      </p>
 
-<p>Example - </p>
+      <p>Example - </p>
 
-<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">img</span> 
+      <div class="highlight highlight-text-html-basic">
+        <pre>&lt;<span class="pl-ent">img</span> 
     <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>https://newevolutiondesigns.com/images/freebies/tropical-beach-background-8.jpg<span class="pl-pds">"</span></span> 
     <span class="pl-e">ng-image-appear</span>
     <span class="pl-e">placeholder</span>=<span class="pl-s"><span class="pl-pds">"</span>http://getuikit.com/docs/images/placeholder_600x400.svg<span class="pl-pds">"</span></span>
-/&gt; </pre></div>
+/&gt; </pre>
+      </div>
 
-<p><img src="https://github.com/ArunMichaelDsouza/ng-image-appear/raw/master/demo/images/placeholder-custom.gif" alt="placeholder-custom"></p>
+      <p><img src="https://github.com/ArunMichaelDsouza/ng-image-appear/raw/master/demo/images/placeholder-custom.gif"
+          alt="placeholder-custom"></p>
 
-<p><br></p>
+      <p><br></p>
 
-<h4>
-<a id="placeholder-class" class="anchor" href="#placeholder-class" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>placeholder-class</code>
-</h4>
+      <h4>
+        <a id="placeholder-class" class="anchor" href="#placeholder-class" aria-hidden="true"><span aria-hidden="true"
+            class="octicon octicon-link"></span></a><code>placeholder-class</code>
+      </h4>
 
-<p>Use this option to add a CSS class to the placeholder background.</p>
+      <p>Use this option to add a CSS class to the placeholder background.</p>
 
-<p>Example - </p>
+      <p>Example - </p>
 
-<div class="highlight highlight-text-html-basic"><pre><span class="pl-s1">&lt;<span class="pl-ent">style</span>&gt;</span>
+      <div class="highlight highlight-text-html-basic">
+        <pre><span class="pl-s1">&lt;<span class="pl-ent">style</span>&gt;</span>
 <span class="pl-s1">    <span class="pl-e">.placeholder-css</span> {</span>
 <span class="pl-s1">        <span class="pl-c1"><span class="pl-c1">background-size</span></span>: contain;</span>
 <span class="pl-s1">    }</span>
@@ -273,54 +334,66 @@
     <span class="pl-e">ng-image-appear</span>
     <span class="pl-e">placeholder</span>
     <span class="pl-e">placeholder-class</span>=<span class="pl-s"><span class="pl-pds">"</span>placeholder-css<span class="pl-pds">"</span></span>
-/&gt; </pre></div>
+/&gt; </pre>
+      </div>
 
-<p><br></p>
+      <p><br></p>
 
-<h4>
-<a id="placeholder-style" class="anchor" href="#placeholder-style" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>placeholder-style</code>
-</h4>
+      <h4>
+        <a id="placeholder-style" class="anchor" href="#placeholder-style" aria-hidden="true"><span aria-hidden="true"
+            class="octicon octicon-link"></span></a><code>placeholder-style</code>
+      </h4>
 
-<p>Add CSS styles to the placeholder background using this option.</p>
+      <p>Add CSS styles to the placeholder background using this option.</p>
 
-<p>Example - </p>
+      <p>Example - </p>
 
-<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">img</span> 
+      <div class="highlight highlight-text-html-basic">
+        <pre>&lt;<span class="pl-ent">img</span> 
     <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>https://newevolutiondesigns.com/images/freebies/tropical-beach-background-8.jpg<span class="pl-pds">"</span></span> 
     <span class="pl-e">ng-image-appear</span>
     <span class="pl-e">placeholder</span>
     <span class="pl-e">placeholder-style</span>=<span class="pl-s"><span class="pl-pds">"</span>background-size: contain;<span class="pl-pds">"</span></span>
-/&gt; </pre></div>
+/&gt; </pre>
+      </div>
 
-<p><br></p>
+      <p><br></p>
 
-<h4>
-<a id="loader-img" class="anchor" href="#loader-img" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>loader-img</code>
-</h4>
+      <h4>
+        <a id="loader-img" class="anchor" href="#loader-img" aria-hidden="true"><span aria-hidden="true"
+            class="octicon octicon-link"></span></a><code>loader-img</code>
+      </h4>
 
-<p>Add a custom <code>gif</code> loader in the image wrapper. Default <code>width</code> and <code>height</code> of the loader is <code>40px</code>. The image must be a <code>gif</code>.</p>
+      <p>Add a custom <code>gif</code> loader in the image wrapper. Default <code>width</code> and <code>height</code>
+        of the loader is <code>40px</code>. The image must be a <code>gif</code>.</p>
 
-<p>Example - </p>
+      <p>Example - </p>
 
-<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">img</span> 
+      <div class="highlight highlight-text-html-basic">
+        <pre>&lt;<span class="pl-ent">img</span> 
     <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>https://newevolutiondesigns.com/images/freebies/tropical-beach-background-8.jpg<span class="pl-pds">"</span></span> 
     <span class="pl-e">ng-image-appear</span>
     <span class="pl-e">loader-img</span>=<span class="pl-s"><span class="pl-pds">"</span>https://cache.dominos.com/nolo/ca/en/010048/assets/build/images/img/spinner.gif<span class="pl-pds">"</span></span>
-/&gt; </pre></div>
+/&gt; </pre>
+      </div>
 
-<p><img src="https://raw.githubusercontent.com/ArunMichaelDsouza/ng-image-appear/master/demo/images/loader-img.gif" alt="loader-img"></p>
+      <p><img
+          src="https://raw.githubusercontent.com/ArunMichaelDsouza/ng-image-appear/master/demo/images/loader-img.gif"
+          alt="loader-img"></p>
 
-<p><br></p>
+      <p><br></p>
 
-<h4>
-<a id="loader-class" class="anchor" href="#loader-class" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>loader-class</code>
-</h4>
+      <h4>
+        <a id="loader-class" class="anchor" href="#loader-class" aria-hidden="true"><span aria-hidden="true"
+            class="octicon octicon-link"></span></a><code>loader-class</code>
+      </h4>
 
-<p>Use this option to add a CSS class to the loader element.</p>
+      <p>Use this option to add a CSS class to the loader element.</p>
 
-<p>Example - </p>
+      <p>Example - </p>
 
-<div class="highlight highlight-text-html-basic"><pre><span class="pl-s1">&lt;<span class="pl-ent">style</span>&gt;</span>
+      <div class="highlight highlight-text-html-basic">
+        <pre><span class="pl-s1">&lt;<span class="pl-ent">style</span>&gt;</span>
 <span class="pl-s1">    <span class="pl-e">.loader-css</span> {</span>
 <span class="pl-s1">        <span class="pl-c1"><span class="pl-c1">width</span></span>: <span class="pl-c1">60<span class="pl-k">px</span></span>; </span>
 <span class="pl-s1">        <span class="pl-c1"><span class="pl-c1">height</span></span>: <span class="pl-c1">60<span class="pl-k">px</span></span>; </span>
@@ -333,204 +406,264 @@
     <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>https://newevolutiondesigns.com/images/freebies/tropical-beach-background-8.jpg<span class="pl-pds">"</span></span> 
     <span class="pl-e">ng-image-appear</span>
     <span class="pl-e">loader-class</span>=<span class="pl-s"><span class="pl-pds">"</span>loader-css<span class="pl-pds">"</span></span>
-/&gt; </pre></div>
+/&gt; </pre>
+      </div>
 
-<p><br></p>
+      <p><br></p>
 
-<h4>
-<a id="loader-style" class="anchor" href="#loader-style" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>loader-style</code>
-</h4>
+      <h4>
+        <a id="loader-style" class="anchor" href="#loader-style" aria-hidden="true"><span aria-hidden="true"
+            class="octicon octicon-link"></span></a><code>loader-style</code>
+      </h4>
 
-<p>Add CSS styles to the loader element using this option.</p>
+      <p>Add CSS styles to the loader element using this option.</p>
 
-<p>Example - </p>
+      <p>Example - </p>
 
-<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">img</span> 
+      <div class="highlight highlight-text-html-basic">
+        <pre>&lt;<span class="pl-ent">img</span> 
     <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>https://newevolutiondesigns.com/images/freebies/tropical-beach-background-8.jpg<span class="pl-pds">"</span></span> 
     <span class="pl-e">ng-image-appear</span>
     <span class="pl-e">loader-styles</span>=<span class="pl-s"><span class="pl-pds">"</span>width: 60px; height: 60px; left: calc((100% - 60px) / 2); top: calc((100% - 60px) / 2);<span class="pl-pds">"</span></span>
-/&gt; </pre></div>
+/&gt; </pre>
+      </div>
 
-<p><br></p>
+      <p><br></p>
 
-<h4>
-<a id="animation" class="anchor" href="#animation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>animation</code>
-</h4>
+      <h4>
+        <a id="animation" class="anchor" href="#animation" aria-hidden="true"><span aria-hidden="true"
+            class="octicon octicon-link"></span></a><code>animation</code>
+      </h4>
 
-<p>Add a CSS3 powered animation to the image as it appears. Default animation is <code>fadeIn</code>.</p>
+      <p>Add a CSS3 powered animation to the image as it appears. Default animation is <code>fadeIn</code>.</p>
 
-<p>Example - </p>
+      <p>Example - </p>
 
-<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">img</span> 
+      <div class="highlight highlight-text-html-basic">
+        <pre>&lt;<span class="pl-ent">img</span> 
     <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>https://newevolutiondesigns.com/images/freebies/tropical-beach-background-8.jpg<span class="pl-pds">"</span></span> 
     <span class="pl-e">ng-image-appear</span>
     <span class="pl-e">animation</span>=<span class="pl-s"><span class="pl-pds">"</span>bounceIn<span class="pl-pds">"</span></span>
-/&gt; </pre></div>
+/&gt; </pre>
+      </div>
 
-<p><img src="https://raw.githubusercontent.com/ArunMichaelDsouza/ng-image-appear/master/demo/images/animation.gif" alt="animation"></p>
+      <p><img src="https://raw.githubusercontent.com/ArunMichaelDsouza/ng-image-appear/master/demo/images/animation.gif"
+          alt="animation"></p>
 
-<p>ng-image-appear has the following built-in CSS3 animations - </p>
+      <p>ng-image-appear has the following built-in CSS3 animations - </p>
 
-<h5>
-<a id="fadein-default" class="anchor" href="#fadein-default" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>fadeIn (default)</code>
-</h5>
+      <h5>
+        <a id="fadein-default" class="anchor" href="#fadein-default" aria-hidden="true"><span aria-hidden="true"
+            class="octicon octicon-link"></span></a><code>fadeIn (default)</code>
+      </h5>
 
-<h5>
-<a id="fadeinup" class="anchor" href="#fadeinup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>fadeInUp</code>
-</h5>
+      <h5>
+        <a id="fadeinup" class="anchor" href="#fadeinup" aria-hidden="true"><span aria-hidden="true"
+            class="octicon octicon-link"></span></a><code>fadeInUp</code>
+      </h5>
 
-<h5>
-<a id="fadeinright" class="anchor" href="#fadeinright" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>fadeInRight</code>
-</h5>
+      <h5>
+        <a id="fadeinright" class="anchor" href="#fadeinright" aria-hidden="true"><span aria-hidden="true"
+            class="octicon octicon-link"></span></a><code>fadeInRight</code>
+      </h5>
 
-<h5>
-<a id="fadeindown" class="anchor" href="#fadeindown" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>fadeInDown</code>
-</h5>
+      <h5>
+        <a id="fadeindown" class="anchor" href="#fadeindown" aria-hidden="true"><span aria-hidden="true"
+            class="octicon octicon-link"></span></a><code>fadeInDown</code>
+      </h5>
 
-<h5>
-<a id="fadeinleft" class="anchor" href="#fadeinleft" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>fadeInLeft</code>
-</h5>
+      <h5>
+        <a id="fadeinleft" class="anchor" href="#fadeinleft" aria-hidden="true"><span aria-hidden="true"
+            class="octicon octicon-link"></span></a><code>fadeInLeft</code>
+      </h5>
 
-<h5>
-<a id="bouncein" class="anchor" href="#bouncein" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>bounceIn</code>
-</h5>
+      <h5>
+        <a id="bouncein" class="anchor" href="#bouncein" aria-hidden="true"><span aria-hidden="true"
+            class="octicon octicon-link"></span></a><code>bounceIn</code>
+      </h5>
 
-<h5>
-<a id="bounceinup" class="anchor" href="#bounceinup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>bounceInUp</code>
-</h5>
+      <h5>
+        <a id="bounceinup" class="anchor" href="#bounceinup" aria-hidden="true"><span aria-hidden="true"
+            class="octicon octicon-link"></span></a><code>bounceInUp</code>
+      </h5>
 
-<h5>
-<a id="bounceinright" class="anchor" href="#bounceinright" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>bounceInRight</code>
-</h5>
+      <h5>
+        <a id="bounceinright" class="anchor" href="#bounceinright" aria-hidden="true"><span aria-hidden="true"
+            class="octicon octicon-link"></span></a><code>bounceInRight</code>
+      </h5>
 
-<h5>
-<a id="bounceindown" class="anchor" href="#bounceindown" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>bounceInDown</code>
-</h5>
+      <h5>
+        <a id="bounceindown" class="anchor" href="#bounceindown" aria-hidden="true"><span aria-hidden="true"
+            class="octicon octicon-link"></span></a><code>bounceInDown</code>
+      </h5>
 
-<h5>
-<a id="bounceinleft" class="anchor" href="#bounceinleft" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>bounceInLeft</code>
-</h5>
+      <h5>
+        <a id="bounceinleft" class="anchor" href="#bounceinleft" aria-hidden="true"><span aria-hidden="true"
+            class="octicon octicon-link"></span></a><code>bounceInLeft</code>
+      </h5>
 
-<h5>
-<a id="flipinx" class="anchor" href="#flipinx" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>flipInX</code>
-</h5>
+      <h5>
+        <a id="flipinx" class="anchor" href="#flipinx" aria-hidden="true"><span aria-hidden="true"
+            class="octicon octicon-link"></span></a><code>flipInX</code>
+      </h5>
 
-<h5>
-<a id="flipiny" class="anchor" href="#flipiny" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>flipInY</code>
-</h5>
+      <h5>
+        <a id="flipiny" class="anchor" href="#flipiny" aria-hidden="true"><span aria-hidden="true"
+            class="octicon octicon-link"></span></a><code>flipInY</code>
+      </h5>
 
-<h5>
-<a id="zoomin" class="anchor" href="#zoomin" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>zoomIn</code>
-</h5>
+      <h5>
+        <a id="zoomin" class="anchor" href="#zoomin" aria-hidden="true"><span aria-hidden="true"
+            class="octicon octicon-link"></span></a><code>zoomIn</code>
+      </h5>
 
-<h5>
-<a id="blurin" class="anchor" href="#blurin" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>blurIn</code>
-</h5>
+      <h5>
+        <a id="blurin" class="anchor" href="#blurin" aria-hidden="true"><span aria-hidden="true"
+            class="octicon octicon-link"></span></a><code>blurIn</code>
+      </h5>
 
-<h5>
-<a id="blurinup" class="anchor" href="#blurinup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>blurInUp</code>
-</h5>
+      <h5>
+        <a id="blurinup" class="anchor" href="#blurinup" aria-hidden="true"><span aria-hidden="true"
+            class="octicon octicon-link"></span></a><code>blurInUp</code>
+      </h5>
 
-<h5>
-<a id="blurinright" class="anchor" href="#blurinright" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>blurInRight</code>
-</h5>
+      <h5>
+        <a id="blurinright" class="anchor" href="#blurinright" aria-hidden="true"><span aria-hidden="true"
+            class="octicon octicon-link"></span></a><code>blurInRight</code>
+      </h5>
 
-<h5>
-<a id="blurindown" class="anchor" href="#blurindown" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>blurInDown</code>
-</h5>
+      <h5>
+        <a id="blurindown" class="anchor" href="#blurindown" aria-hidden="true"><span aria-hidden="true"
+            class="octicon octicon-link"></span></a><code>blurInDown</code>
+      </h5>
 
-<h5>
-<a id="blurinleft" class="anchor" href="#blurinleft" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>blurInLeft</code>
-</h5>
+      <h5>
+        <a id="blurinleft" class="anchor" href="#blurinleft" aria-hidden="true"><span aria-hidden="true"
+            class="octicon octicon-link"></span></a><code>blurInLeft</code>
+      </h5>
 
-<h5>
-<a id="fillin" class="anchor" href="#fillin" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>fillIn</code>
-</h5>
+      <h5>
+        <a id="fillin" class="anchor" href="#fillin" aria-hidden="true"><span aria-hidden="true"
+            class="octicon octicon-link"></span></a><code>fillIn</code>
+      </h5>
 
-<p><br></p>
+      <p><br></p>
 
-<h4>
-<a id="animation-duration" class="anchor" href="#animation-duration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>animation-duration</code>
-</h4>
+      <h4>
+        <a id="animation-duration" class="anchor" href="#animation-duration" aria-hidden="true"><span aria-hidden="true"
+            class="octicon octicon-link"></span></a><code>animation-duration</code>
+      </h4>
 
-<p>This parameter specifies the animation duration for the image to appear. Default value is <code>700ms</code>.</p>
+      <p>This parameter specifies the animation duration for the image to appear. Default value is <code>700ms</code>.
+      </p>
 
-<p>Example - </p>
+      <p>Example - </p>
 
-<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">img</span> 
+      <div class="highlight highlight-text-html-basic">
+        <pre>&lt;<span class="pl-ent">img</span> 
     <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>https://newevolutiondesigns.com/images/freebies/tropical-beach-background-8.jpg<span class="pl-pds">"</span></span> 
     <span class="pl-e">ng-image-appear</span>
     <span class="pl-e">animation</span>=<span class="pl-s"><span class="pl-pds">"</span>fillIn<span class="pl-pds">"</span></span>
     <span class="pl-e">animation-duration</span>=<span class="pl-s"><span class="pl-pds">"</span>2s<span class="pl-pds">"</span></span>
-/&gt; </pre></div>
+/&gt; </pre>
+      </div>
 
-<p><br></p>
+      <p><br></p>
 
-<h4>
-<a id="easing" class="anchor" href="#easing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>easing</code>
-</h4>
+      <h4>
+        <a id="easing" class="anchor" href="#easing" aria-hidden="true"><span aria-hidden="true"
+            class="octicon octicon-link"></span></a><code>easing</code>
+      </h4>
 
-<p>Specifies the timing-function for the CSS3 powered transition/animation. Default value is <code>ease-in-out</code>.</p>
+      <p>Specifies the timing-function for the CSS3 powered transition/animation. Default value is
+        <code>ease-in-out</code>.</p>
 
-<p>Example - </p>
+      <p>Example - </p>
 
-<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">img</span> 
+      <div class="highlight highlight-text-html-basic">
+        <pre>&lt;<span class="pl-ent">img</span> 
     <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>https://newevolutiondesigns.com/images/freebies/tropical-beach-background-8.jpg<span class="pl-pds">"</span></span> 
     <span class="pl-e">ng-image-appear</span>
     <span class="pl-e">animation</span>=<span class="pl-s"><span class="pl-pds">"</span>bounceIn<span class="pl-pds">"</span></span>
     <span class="pl-e">easing</span>=<span class="pl-s"><span class="pl-pds">"</span>ease-out<span class="pl-pds">"</span></span>
-/&gt; </pre></div>
+/&gt; </pre>
+      </div>
 
-<p><br></p>
+      <p><br></p>
 
-<h2>
-<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
+      <h2>
+        <a id="examples" class="anchor" href="#examples" aria-hidden="true"><span aria-hidden="true"
+            class="octicon octicon-link"></span></a>Examples</h2>
 
-<ul>
-  <li>
-    <a target="_blank" href="examples/simple.html">Simple</a>
-  </li>
-  <li>
-    <a target="_blank" href="examples/placeholder.html">Placeholder</a>
-  </li>
-  <li>
-    <a target="_blank" href="examples/animation.html">Animation</a>
-  </li>
-  <li>
-    <a target="_blank" href="examples/ng-repeat.html">With ng-repeat</a>
-  </li>
-</ul>
+      <ul>
+        <li>
+          <a target="_blank" href="examples/simple.html">Simple</a>
+        </li>
+        <li>
+          <a target="_blank" href="examples/placeholder.html">Placeholder</a>
+        </li>
+        <li>
+          <a target="_blank" href="examples/animation.html">Animation</a>
+        </li>
+        <li>
+          <a target="_blank" href="examples/ng-repeat.html">With ng-repeat</a>
+        </li>
+      </ul>
 
-<p><br></p>
+      <p><br></p>
 
-<h2>
-<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+      <h2>
+        <a id="support" class="anchor" href="#support" aria-hidden="true"><span aria-hidden="true"
+            class="octicon octicon-link"></span></a>Support</h2>
 
-<p>MIT Licensed</p>
+      <p>If you'd like to help support the development of the project, please consider backing me on Patreon -</p>
 
-<p>Copyright (c) 2016 Arun Michael Dsouza (<a href="mailto:amdsouza92@gmail.com">amdsouza92@gmail.com</a>)</p>
+      <p><a href="https://www.patreon.com/bePatron?u=8841116" rel="nofollow"><img
+            src="https://camo.githubusercontent.com/286a781075ac875fefef3e9a763c7b2defb6af85/68747470733a2f2f6172756e6d69636861656c64736f757a612e636f6d2f696d672f70617472656f6e2e706e67"
+            width="180px;" data-canonical-src="https://arunmichaeldsouza.com/img/patreon.png"
+            style="max-width:100%;"></a></p>
 
-<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+      <p><br></p>
 
-<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
 
-<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
-      </section>
-      <footer>
-        <p>Project maintained by <a href="https://github.com/ArunMichaelDsouza">ArunMichaelDsouza</a></p>
-        <p><small>Hosted on GitHub Pages</small></p>
-      </footer>
-    </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+      <h2>
+        <a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true"
+            class="octicon octicon-link"></span></a>License</h2>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/angular.image-appear/1.11.3/ng-image-appear.min.js"></script>
-    <script>
-      var myApp = angular.module('myApp', ['ngImageAppear']);
+      <p>MIT Licensed</p>
 
-      myApp.controller('appCtrl', ['$scope', function($scope) {
+      <p>Copyright (c) 2016 Arun Michael Dsouza (<a href="mailto:amdsouza92@gmail.com">amdsouza92@gmail.com</a>)</p>
 
-      }]);
-    </script>
-  </body>
+      <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+        documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+        the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and
+        to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+
+      <p>The above copyright notice and this permission notice shall be included in all copies or substantial portions
+        of the Software.</p>
+
+      <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+        TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+        THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
+        CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+        DEALINGS IN THE SOFTWARE.</p>
+    </section>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/ArunMichaelDsouza">ArunMichaelDsouza</a></p>
+      <p><small>Hosted on GitHub Pages</small></p>
+    </footer>
+  </div>
+  <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/angular.image-appear/1.11.3/ng-image-appear.min.js"></script>
+  <script>
+    var myApp = angular.module('myApp', ['ngImageAppear']);
+
+    myApp.controller('appCtrl', ['$scope', function ($scope) {
+
+    }]);
+  </script>
+</body>
+
 </html>
